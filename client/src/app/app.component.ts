@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarComponent],
+  imports: [CommonModule, RouterOutlet, LayoutComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
 })
