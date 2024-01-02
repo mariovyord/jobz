@@ -6,6 +6,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { AuthAvatarComponent } from '../auth-avatar/auth-avatar.component';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-layout',

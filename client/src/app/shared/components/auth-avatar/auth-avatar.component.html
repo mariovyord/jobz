@@ -1,10 +1,14 @@
+@if (isAuthenticated$ | async) {
 <button
   class="signin__btn"
   nz-button
   nzType="primary"
   nzSize="large"
   nzShape="round"
+  (click)="signIn()"
 >
   Sign In
 </button>
+} @else {
 <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+}
