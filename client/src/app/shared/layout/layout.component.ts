@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @Component({
   selector: 'app-layout',
@@ -14,6 +15,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
     NzLayoutModule,
     NzMenuModule,
     RouterLink,
+    NzAvatarModule,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.less',
