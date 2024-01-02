@@ -13,4 +13,12 @@ export class UserService {
   public loginWithRedirect(): void {
     this.auth.loginWithRedirect();
   }
+
+  public signOut(): void {
+    this.auth.logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  }
 }

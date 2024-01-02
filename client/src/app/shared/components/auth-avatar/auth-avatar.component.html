@@ -1,4 +1,10 @@
 @if (isAuthenticated$ | async) {
+<nz-avatar
+  nzSize="large"
+  [nzSrc]="(user$ | async)?.picture"
+  nzIcon="user"
+></nz-avatar>
+} @else {
 <button
   class="signin__btn"
   nz-button
@@ -9,6 +15,4 @@
 >
   Sign In
 </button>
-} @else {
-<nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
 }

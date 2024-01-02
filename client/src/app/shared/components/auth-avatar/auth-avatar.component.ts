@@ -14,9 +14,18 @@ export class AuthAvatarComponent {
   public isAuthenticated$ = this.userService.isAuthenticated$;
   public user$ = this.userService.user$;
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) {
+    this.isAuthenticated$.subscribe((x) => {
+      console.log('is', x);
+    });
+
+    this.user$.subscribe((x) => {
+      console.log(x);
+    });
+  }
 
   public signIn(): void {
+    console.log(window.location.origin);
     this.userService.loginWithRedirect();
   }
 }
