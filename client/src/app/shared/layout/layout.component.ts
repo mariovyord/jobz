@@ -6,7 +6,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-layout',
   standalone: true,
   imports: [
     CommonModule,
@@ -15,8 +15,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
     NzMenuModule,
     RouterLink,
   ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.less',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.less',
 })
 export class LayoutComponent {
   public isCollapsed = false;
