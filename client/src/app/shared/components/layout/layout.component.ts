@@ -5,6 +5,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { AuthAvatarComponent } from '../auth-avatar/auth-avatar.component';
 
 @Component({
   selector: 'app-layout',
@@ -15,7 +16,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
     NzLayoutModule,
     NzMenuModule,
     RouterLink,
-    NzAvatarModule,
+    AuthAvatarComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.less',
