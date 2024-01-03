@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { Thread } from '../../types/thread.type';
 @Component({
   selector: 'app-thread-body',
   standalone: true,
@@ -8,4 +9,6 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
   templateUrl: './thread-body.component.html',
   styleUrl: './thread-body.component.less',
 })
-export class ThreadBodyComponent {}
+export class ThreadBodyComponent {
+  @Input() public thread: Thread;
+}
