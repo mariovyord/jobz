@@ -3,21 +3,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthzModule } from './authz/authz.module';
+import { ThreadModule } from './thread/thread.module';
+import { CommentModule } from './comment/comment.module';
+import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 6543,
-      password: '123123',
-      username: 'postgres',
-      entities: [],
-      database: 'threads-app',
-      synchronize: true,
-      logging: true,
-    }),
+    TypeOrmModule.forRoot(databaseConfig),
     AuthzModule,
+    ThreadModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
