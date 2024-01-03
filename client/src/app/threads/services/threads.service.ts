@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Thread } from '../types/thread.type';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ApiService } from '../../shared/services/api/api.service';
+import { ApiService } from '../../core/services/api/api.service';
 
 @Injectable()
 export class ThreadsService extends ApiService<Thread> {

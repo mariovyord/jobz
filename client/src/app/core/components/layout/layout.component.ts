@@ -4,9 +4,7 @@ import { RouterLink } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { AuthAvatarComponent } from '../auth-avatar/auth-avatar.component';
-import { UserService } from '../../services/user/user.service';
+import { AuthAvatarComponent } from '../../../shared/components/auth-avatar/auth-avatar.component';
 
 @Component({
   selector: 'app-layout',
