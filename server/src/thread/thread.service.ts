@@ -3,9 +3,8 @@ import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Thread } from './entities/thread.entity';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 
-// TODO: Add decorator validator for UUI
 @Injectable()
 export class ThreadService {
   constructor(
@@ -30,7 +29,7 @@ export class ThreadService {
     return this.threadRepository.findOneBy({ id });
   }
 
-  public update(id: string, updateThreadDto: UpdateThreadDto) {
+  public update(id: string, updateThreadDto: UpdateThreadDto): Promise<Thread> {
     const thread = new Thread();
     thread.title = updateThreadDto.title;
     thread.content = updateThreadDto.content;
@@ -41,7 +40,7 @@ export class ThreadService {
     return this.threadRepository.save(thread);
   }
 
-  public remove(id: string) {
+  public remove(id: string): Promise<DeleteResult> {
     return this.threadRepository.delete(id);
   }
 }
