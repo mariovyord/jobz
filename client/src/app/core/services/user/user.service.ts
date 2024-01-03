@@ -21,4 +21,8 @@ export class UserService {
       },
     });
   }
+
+  public getUserToken() {
+    return this.auth.getAccessTokenSilently();
+  }
 }

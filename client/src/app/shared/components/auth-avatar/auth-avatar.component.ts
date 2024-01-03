@@ -19,4 +19,8 @@ export class AuthAvatarComponent {
   public signIn(): void {
     this.userService.loginWithRedirect();
   }
+
+  public signOut(): void {
+    this.userService.signOut();
+  }
 }

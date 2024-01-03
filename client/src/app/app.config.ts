@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideNzIcons } from './icons-provider';
 import { AuthModule } from '@auth0/auth0-angular';
+import { interceptorsProvider } from './core/interceptors/interceptors.provider';
 
 registerLocaleData(en);
 
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     provideAnimations(),
     provideNzIcons(),
+    interceptorsProvider,
     importProvidersFrom(
       AuthModule.forRoot({
         domain: environment.domain,
@@ -28,6 +30,7 @@ export const appConfig: ApplicationConfig = {
         cacheLocation: 'localstorage',
         authorizationParams: {
           redirect_uri: window.location.origin,
+          audience: 'http://localhost:3000',
         },
       })
     ),

@@ -1,4 +1,14 @@
 @if (isAuthenticated$ | async) {
+<button
+  class="signin__btn"
+  nz-button
+  nzType="primary"
+  nzSize="large"
+  nzShape="round"
+  (click)="signOut()"
+>
+  Sign Out
+</button>
 <nz-avatar
   nzSize="large"
   [nzSrc]="(user$ | async)?.picture"
