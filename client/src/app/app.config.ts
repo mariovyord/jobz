@@ -23,16 +23,15 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideNzIcons(),
     interceptorsProvider,
-    importProvidersFrom(
-      AuthModule.forRoot({
+    importProvidersFrom(AuthModule.forRoot({
         domain: environment.domain,
         clientId: environment.clientId,
         cacheLocation: 'localstorage',
         authorizationParams: {
-          redirect_uri: window.location.origin,
-          audience: 'http://localhost:3000',
+            redirect_uri: window.location.origin,
+            audience: 'http://localhost:3000',
         },
-      })
-    ),
-  ],
+    })),
+    provideAnimations()
+],
 };
