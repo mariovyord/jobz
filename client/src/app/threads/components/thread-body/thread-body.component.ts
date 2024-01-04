@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzGridModule } from 'ng-zorro-antd/grid';
 import { Thread } from '../../types/thread.type';
+import { MatCardModule } from '@angular/material/card';
+
 @Component({
   selector: 'app-thread-body',
   standalone: true,
-  imports: [NzCardModule],
+  imports: [MatCardModule],
   templateUrl: './thread-body.component.html',
   styleUrl: './thread-body.component.less',
 })

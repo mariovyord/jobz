@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { AsyncPipe } from '@angular/common';
 import { UserService } from '../../../core/services/user/user.service';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-auth-avatar',
   standalone: true,
-  imports: [NzAvatarModule, NzButtonModule, AsyncPipe],
+  imports: [MatIconModule, AsyncPipe],
   templateUrl: './auth-avatar.component.html',
   styleUrl: './auth-avatar.component.less',
 })

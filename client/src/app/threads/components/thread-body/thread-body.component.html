@@ -1,3 +1,10 @@
-<nz-card [nzTitle]="thread.title">
-  <p>{{ thread.content }}</p>
-</nz-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ thread.title }}</mat-card-title>
+    <mat-card-subtitle>{{ thread.content }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,28 +1,14 @@
 @if (isAuthenticated$ | async) {
-<button
-  class="signin__btn"
-  nz-button
-  nzType="primary"
-  nzSize="large"
-  nzShape="round"
-  (click)="signOut()"
->
+<button class="signin__btn" mat-button color="primary" (click)="signOut()">
   Sign Out
 </button>
-<nz-avatar
-  nzSize="large"
-  [nzSrc]="(user$ | async)?.picture"
-  nzIcon="user"
-></nz-avatar>
+<mat-icon
+  aria-hidden="false"
+  aria-label="Example home icon"
+  fontIcon="home"
+></mat-icon>
 } @else {
-<button
-  class="signin__btn"
-  nz-button
-  nzType="primary"
-  nzSize="large"
-  nzShape="round"
-  (click)="signIn()"
->
+<button class="signin__btn" mat-button color="primary" (click)="signIn()">
   Sign In
 </button>
 }
