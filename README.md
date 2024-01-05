@@ -1,3 +1,11 @@
-Post it
+# Post IT
 
-Experimental app
+Full-stack app for experimenting with code
+
+- Angular
+- Angular Material
+- Auth0
+- NestJS
+- PostgreSQL
+- TypeORM
+- Docker
