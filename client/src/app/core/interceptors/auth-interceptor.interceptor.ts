@@ -8,7 +8,6 @@ import {
 import { Observable, catchError, switchMap, take } from 'rxjs';
 import { UserService } from '../services/user/user.service';
 
-// TODO: This service should check token validity, refresh tokens and so on.
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(public userService: UserService) {}
@@ -24,6 +23,8 @@ export class AuthInterceptor implements HttpInterceptor {
       }),
       switchMap((token) => {
         if (token && typeof token === 'string') {
+          this.userService.refreshTokenSilentlyIfNeeded(token);
+
           const clone = httpRequest.clone({
             setHeaders: {
               Authorization: `Bearer ${token}`,
