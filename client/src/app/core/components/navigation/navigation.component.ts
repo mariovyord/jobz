@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
+import { AuthAvatarComponent } from '../../../shared/components/auth-avatar/auth-avatar.component';
 
 @Component({
   selector: 'app-navigation',
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     RouterModule,
+    AuthAvatarComponent,
   ],
 })
 export class NavigationComponent {

@@ -10,6 +10,8 @@
   </button>
   }
   <span>Post IT</span>
+  <span class="spacer"></span>
+  <app-auth-avatar></app-auth-avatar>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
@@ -27,6 +29,8 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <ng-content></ng-content>
+    <main class="main-content">
+      <ng-content></ng-content>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
