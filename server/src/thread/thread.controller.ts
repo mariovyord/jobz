@@ -8,7 +8,6 @@ import {
   Delete,
   ParseUUIDPipe,
   UseGuards,
-  Headers,
 } from '@nestjs/common';
 import { ThreadService } from './thread.service';
 import { CreateThreadDto } from './dto/create-thread.dto';
@@ -25,10 +24,8 @@ export class ThreadController {
     return this.threadService.create(createThreadDto);
   }
 
-  @UseGuards(AuthGuard('jwt'))
   @Get()
-  findAll(@Headers() headers: Record<string, string>) {
-    console.log(headers['authorization']);
+  findAll() {
     return this.threadService.findAll();
   }
 
