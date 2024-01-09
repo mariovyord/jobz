@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { AuthModule } from '@auth0/auth0-angular';
 import { interceptorsProvider } from './core/interceptors/interceptors.provider';
-import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 registerLocaleData(en);
 

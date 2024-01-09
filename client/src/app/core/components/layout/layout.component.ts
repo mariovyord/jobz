@@ -8,13 +8,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RouterModule } from '@angular/router';
-import { AuthAvatarComponent } from '../../../shared/components/auth-avatar/auth-avatar.component';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.less'],
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.less'],
   standalone: true,
   imports: [
     MatToolbarModule,
@@ -23,17 +21,14 @@ import { AuthAvatarComponent } from '../../../shared/components/auth-avatar/auth
     MatListModule,
     MatIconModule,
     AsyncPipe,
-    RouterModule,
-    AuthAvatarComponent,
-  ],
+  ]
 })
-export class NavigationComponent {
+export class LayoutComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
-      map((result) => result.matches),
+      map(result => result.matches),
       shareReplay()
     );
 }
