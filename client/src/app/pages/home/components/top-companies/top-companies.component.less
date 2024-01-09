@@ -1,9 +1,26 @@
-.logos {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 .title {
   margin-bottom: 30px;
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.image {
+  width: 100%;
+  position: relative;
+  height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: auto;
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
 }

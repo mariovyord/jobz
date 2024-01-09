@@ -1,6 +1,35 @@
 <h5 class="mat-headline-5 title">Tоп работодатели</h5>
 <div class="logos">
-  @for (item of imgArray; track $index) {
-  <img [ngSrc]="'https://picsum.photos/170/70'" width="170" height="70" />
+  @for (row of rows; track $index) {
+  <a class="image">
+    <img [src]="'/assets/companies/1.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/2.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/3.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/4.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/5.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/6.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/7.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/8.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/9.png'" />
+  </a>
+  <a class="image">
+    <img [src]="'/assets/companies/10.png'" />
+  </a>
   }
 </div>

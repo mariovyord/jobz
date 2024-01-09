@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './top-companies.component.less',
 })
 export class TopCompaniesComponent {
-  public imgArray = new Array(40);
+  public rows = new Array(4);
 }
