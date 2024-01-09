@@ -1,4 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './pages/home/home.component';
+import { SecondaryNavComponent } from './core/components/secondary-nav/secondary-nav.component';
 
-export const routes: Routes = [{ path: '', component: HomeComponent }];
+export const routes: Routes = [
+  {
+    path: '',
+    component: SecondaryNavComponent,
+    children: [{ path: '', component: HomePageComponent }],
+  },
+];
