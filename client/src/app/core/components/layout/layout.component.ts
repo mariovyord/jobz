@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
+import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 
 @Component({
   selector: 'app-layout',
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     NgOptimizedImage,
     AsyncPipe,
     RouterModule,
+    SidenavContentComponent,
   ],
 })
 export class LayoutComponent {
