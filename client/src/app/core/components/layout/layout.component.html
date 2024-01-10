@@ -15,12 +15,23 @@
         <img ngSrc="/assets/logo.png" width="164" height="71" priority />
       </a>
       <span class="spacer"></span>
-      <a type="button" mat-flat-button class="nav-btn"
+      @if(isSmallScreen$ |async) {
+      <a type="button" mat-icon-button class="nav-btn"
+        ><mat-icon>bookmarks</mat-icon></a
+      >
+      <a type="button" mat-icon-button class="nav-btn"
+        ><mat-icon>message</mat-icon></a
+      >
+
+      } @else {
+      <a type="button" mat-button class="nav-btn"
         ><mat-icon>bookmarks</mat-icon>Бележник</a
       >
-      <a type="button" mat-flat-button class="nav-btn"
+      <a type="button" mat-button class="nav-btn"
         ><mat-icon>message</mat-icon>Съобщения</a
       >
+      }
+
       <button
         class="nav-btn"
         type="button"
@@ -31,6 +42,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div style="padding-left: 5px; padding-right: 5px">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

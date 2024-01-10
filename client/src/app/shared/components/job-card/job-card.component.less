@@ -35,6 +35,10 @@
     display: flex;
     gap: 20px;
 
+    .company-title {
+      font-weight: bold;
+    }
+
     .company-logo {
       max-width: 100px;
     }
@@ -42,10 +46,12 @@
 
   .skills {
     margin-top: 10px;
+    display: flex;
+    gap: 5px;
 
     .skill-logo {
       img {
-        height: 24px;
+        height: 20px;
       }
     }
   }
@@ -53,4 +59,17 @@
 
 .spacer {
   flex: 1 1 auto;
+}
+
+@media (max-width: 940px) {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .first-section {
+    border-right: none;
+    border-bottom: 1px dotted gray;
+  }
 }

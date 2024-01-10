@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
+import { ResponsiveService } from '../../../shared/services/responsive.service';
 
 @Component({
   selector: 'app-layout',
@@ -29,12 +30,7 @@ import { SidenavContentComponent } from './sidenav-content/sidenav-content.compo
   ],
 })
 export class LayoutComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+  public isSmallScreen$ = this.responsiveService.isSmallScreen$;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
-    );
+  constructor(private responsiveService: ResponsiveService) {}
 }
