@@ -7,3 +7,17 @@
 .user-info {
   height: 72px;
 }
+
+.is-active {
+  background-color: rgb(252, 235, 245);
+  border: 1px solid #d40080;
+
+  .mat-icon,
+  .mat-mdc-list-item-title {
+    color: #d40080;
+  }
+}
+
+.mdc-list-item:focus::before {
+  background-color: unset;
+}

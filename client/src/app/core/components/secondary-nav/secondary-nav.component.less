@@ -13,6 +13,10 @@ mat-nav-list.list-horizontal {
   overflow-y: hidden;
 }
 
+.mdc-list-item:focus::before {
+  background-color: unset;
+}
+
 .list-item {
   display: flex;
   flex-direction: column;
@@ -36,4 +40,14 @@ mat-nav-list.list-horizontal {
 .content {
   margin: 0 auto;
   max-width: 1334px;
+}
+
+.is-active {
+  background-color: rgb(252, 235, 245);
+  border: 1px solid #d40080;
+
+  .mat-icon,
+  .mat-mdc-list-item-title {
+    color: #d40080;
+  }
 }
