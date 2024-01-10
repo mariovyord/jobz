@@ -1,1 +1,17 @@
-<p>blog works!</p>
+<app-filter-bar></app-filter-bar>
+<div class="articles-wrapper">
+  @for (article of articles; track article.id) {
+  <mat-card class="card">
+    <img mat-card-image [src]="article.image" alt="Photo of a Shiba Inu" />
+    <mat-card-header>
+      <mat-card-title>{{ article.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ article.subtitle }}
+      </p>
+      <p>{{ article.createdAt.toISOString().substring(0, 10) }}</p>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>

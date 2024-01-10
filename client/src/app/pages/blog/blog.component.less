@@ -1,0 +1,36 @@
+:host {
+  display: grid;
+  gap: 24px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.articles-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+
+  .card {
+    min-height: 434px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .articles-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .articles-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .articles-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

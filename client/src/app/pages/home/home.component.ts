@@ -18,4 +18,4 @@ import { JobNewsComponent } from './components/job-news/job-news.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.less',
 })
-export class HomePageComponent {}
+export class HomeComponent {}
