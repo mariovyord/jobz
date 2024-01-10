@@ -6,6 +6,12 @@ import { JobDetailsComponent } from './pages/job-details/job-details.component';
 import { JobDetailsNavComponent } from './shared/components/job-details-nav/job-details-nav.component';
 import { CompanyDetailsComponent } from './pages/company-details/company-details.component';
 import { CompanyJobsComponent } from './pages/company-jobs/company-jobs.component';
+import { NotebookComponent } from './pages/notebook/notebook.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { EducationComponent } from './pages/education/education.component';
+import { TrendsComponent } from './pages/trends/trends.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { PollsComponent } from './pages/polls/polls.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +20,10 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomePageComponent },
       { path: 'jobs', component: JobsComponent },
+      { path: 'education', component: EducationComponent },
+      { path: 'trends', component: TrendsComponent },
+      { path: 'polls', component: PollsComponent },
+      { path: 'blog', component: BlogComponent },
     ],
   },
   {
@@ -24,5 +34,13 @@ export const routes: Routes = [
       { path: 'company', component: CompanyDetailsComponent },
       { path: 'company/jobs', component: CompanyJobsComponent },
     ],
+  },
+  {
+    path: 'my-jobs',
+    component: NotebookComponent,
+  },
+  {
+    path: 'history',
+    component: HistoryComponent,
   },
 ];

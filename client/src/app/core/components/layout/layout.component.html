@@ -24,11 +24,11 @@
       >
 
       } @else {
-      <a type="button" mat-button class="nav-btn"
+      <a type="button" mat-button class="nav-btn" routerLink="my-jobs"
         ><mat-icon>bookmarks</mat-icon>Бележник</a
       >
-      <a type="button" mat-button class="nav-btn"
-        ><mat-icon>message</mat-icon>Съобщения</a
+      <a type="button" mat-button class="nav-btn" routerLink="history"
+        ><mat-icon>message</mat-icon>Кандидатствания</a
       >
       }
 
@@ -42,7 +42,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
-    <div style="padding-left: 5px; padding-right: 5px">
+    <div class="outlet-wrapper">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
