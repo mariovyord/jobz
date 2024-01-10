@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { JobDetailsDescriptionComponent } from './components/job-details-description/job-details-description.component';
-import { JobDetailsNavComponent } from './components/job-details-nav/job-details-nav.component';
+import { JobDetailsNavComponent } from '../../shared/components/job-details-nav/job-details-nav.component';
 import { JobDetailsSidecompanyComponent } from './components/job-details-sidecompany/job-details-sidecompany.component';
 import { JobDetailsSideinfoComponent } from './components/job-details-sideinfo/job-details-sideinfo.component';
 import { MatButtonModule } from '@angular/material/button';

@@ -22,7 +22,7 @@ export class JobDetailsNavComponent {
       title: 'За нас',
     },
     {
-      url: '/jobs/1/all-company-jobs',
+      url: '/jobs/1/company/jobs',
       title: 'Всички обяви (3)',
     },
   ];
