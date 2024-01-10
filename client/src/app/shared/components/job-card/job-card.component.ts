@@ -1,4 +1,6 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -6,7 +8,13 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-job-card',
   standalone: true,
-  imports: [MatIconModule, MatCardModule, RouterModule],
+  imports: [
+    MatIconModule,
+    MatCardModule,
+    RouterModule,
+    MatButtonModule,
+    NgOptimizedImage,
+  ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.less',
 })

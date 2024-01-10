@@ -1,0 +1,56 @@
+.mat-mdc-card-header {
+  padding: 16px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
+  gap: 10px;
+
+  .company-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .sub {
+    display: flex;
+  }
+
+  .link {
+    text-decoration: none;
+    color: unset;
+    display: block;
+  }
+
+  .first-section {
+    border-right: 1px dotted gray;
+  }
+
+  .company {
+    display: flex;
+    gap: 20px;
+
+    .company-logo {
+      max-width: 100px;
+    }
+  }
+
+  .skills {
+    margin-top: 10px;
+
+    .skill-logo {
+      img {
+        height: 24px;
+      }
+    }
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -1,18 +1,54 @@
-<mat-card>
-  <a routerLink="/jobs">
-    <mat-card-header>
-      <mat-card-subtitle>02.03.2024</mat-card-subtitle>
-      <mat-card-title>Front-end Engineer</mat-card-title>
-      <mat-card-subtitle>
-        <span>София; </span>
-        <span>Ниво Mid-level; </span>
-        <span>Години опит от 2 до 3; </span>
-        <span>Възможност за работа от вкъщи; </span>
-        <span>Постоянна работа; </span>
-        <span>Пълно работно време; </span>
-        <span>Дистанционно интервю; </span>
-        <span>Отпуск 25 дни</span>
+<mat-card class="card">
+  <div class="first-section">
+    <mat-card-header class="header">
+      <mat-card-subtitle class="sub"
+        >02.03.2024
+        <span class="spacer"></span>
+        <mat-icon>bookmark_border</mat-icon>
       </mat-card-subtitle>
+      <a routerLink="/jobs" class="link">
+        <mat-card-title>Front-end Engineer</mat-card-title>
+        <mat-card-subtitle>
+          <div>
+            <span>София; </span>
+            <span>Ниво Mid-level; </span>
+            <span>Години опит от 2 до 3; </span>
+            <span>Възможност за работа от вкъщи; </span>
+            <span>Постоянна работа; </span>
+            <span>Пълно работно време; </span>
+            <span>Дистанционно интервю; </span>
+            <span>Отпуск 25 дни</span>
+          </div>
+          <div class="skills">
+            <div class="skill-logo">
+              <img [src]="'/assets/skills/sql.png'" />
+            </div>
+          </div>
+        </mat-card-subtitle>
+      </a>
     </mat-card-header>
-  </a>
+  </div>
+  <div class="company-wrapper">
+    <mat-card-header class="header">
+      <mat-card-subtitle class="sub">
+        <span class="spacer"></span>
+        <mat-icon>bookmark_border</mat-icon>
+      </mat-card-subtitle>
+      <a routerLink="/jobs" class="link company">
+        <img [src]="'/assets/companies/1.png'" class="company-logo" />
+        <div>
+          <mat-card-title>IT Company EOOD</mat-card-title>
+          <mat-card-subtitle>
+            <span>110 служители; </span>
+            <span>В България от 2017 г.</span>
+          </mat-card-subtitle>
+        </div>
+      </a>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button>Статии</button>
+      <button mat-button>Обяви</button>
+      <button mat-button>За нас</button>
+    </mat-card-actions>
+  </div>
 </mat-card>
