@@ -1,0 +1,23 @@
+<div>
+  <app-job-details-description></app-job-details-description>
+  <div class="submit-wrapper">
+    <div class="btns-row">
+      <a mat-fab extended [routerLink]="'jobs/1'">
+        <mat-icon>send</mat-icon>
+        Кандидатствай
+      </a>
+    </div>
+    <div class="btns-row">
+      <a [routerLink]="'jobs/1'" mat-button
+        ><mat-icon>bookmarks</mat-icon>Запази</a
+      >
+      <a [routerLink]="'jobs/1'" mat-button
+        ><mat-icon>email</mat-icon>Препрати</a
+      >
+    </div>
+  </div>
+</div>
+<div>
+  <app-job-details-sideinfo></app-job-details-sideinfo>
+  <app-job-details-sidecompany></app-job-details-sidecompany>
+</div>
