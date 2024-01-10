@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-top-companies',
@@ -10,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class TopCompaniesComponent {
   public rows = new Array(4);
+
+  @Input() public title = '';
 }

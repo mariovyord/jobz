@@ -1,8 +1,12 @@
 <mat-chip-set role="list">
   @for(filter of filters; track filter.key) {
-  <mat-chip-option (click)="openBottomSheet()">{{
-    filter.title
-  }}</mat-chip-option>
+  <mat-chip-option (click)="openBottomSheet()">
+    <span class="title">
+      {{ filter.title }}
+    </span>
+  </mat-chip-option>
   }
-  <mat-chip class="clear-btn" (click)="clearFilters()">Изчисти</mat-chip>
+  <mat-chip class="clear-btn" (click)="clearFilters()">
+    <span class="title"> Изчисти </span>
+  </mat-chip>
 </mat-chip-set>

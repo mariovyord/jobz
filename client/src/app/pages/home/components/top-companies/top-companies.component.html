@@ -1,4 +1,6 @@
-<h5 class="mat-headline-5 title">Tоп работодатели</h5>
+@if(title) {
+<h5 class="mat-headline-5 title">{{ title }}</h5>
+}
 <div class="logos">
   @for (row of rows; track $index) {
   <a class="image">
