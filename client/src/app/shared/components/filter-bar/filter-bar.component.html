@@ -1,6 +1,10 @@
 <mat-chip-set role="list">
   @for(filter of filters; track filter.key) {
-  <mat-chip-option (click)="openBottomSheet(filter.key, filter.options)">
+  <mat-chip-option
+    [selected]="!!selectedCategories[filter.key]"
+    [selectable]="false"
+    (click)="openBottomSheet(filter.key, filter.options)"
+  >
     <span class="title">
       {{ filter.key }}
     </span>

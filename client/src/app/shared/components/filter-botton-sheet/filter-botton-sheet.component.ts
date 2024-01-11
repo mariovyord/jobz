@@ -70,6 +70,10 @@ export class FilterBottonSheetComponent implements OnInit {
   }
 
   public getParams() {
+    if (Object.keys(this.selectedFilters).length === 0) {
+      return null;
+    }
+
     return {
       [this.data.title]: Object.values(this.selectedFilters)
         .map((y) => y.key)
