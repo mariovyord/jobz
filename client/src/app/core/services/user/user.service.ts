@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { take } from 'rxjs';
+import { catchError, of, take } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 const jwtHelperService = new JwtHelperService();
 
-@UntilDestroy()
 @Injectable({
   providedIn: 'root',
 })
@@ -47,7 +46,18 @@ export class UserService {
      */
     this.auth
       .getAccessTokenSilently({ cacheMode: 'off' })
-      .pipe(take(1), untilDestroyed(this))
+      .pipe(
+        take(1),
+        catchError((err) => {
+          console.error(err);
+          this.auth.logout({
+            logoutParams: {
+              returnTo: window.location.origin,
+            },
+          });
+          return of(null);
+        })
+      )
       .subscribe();
   }
 }
