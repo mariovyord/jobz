@@ -15,7 +15,7 @@
         <img ngSrc="/assets/logo.png" width="164" height="71" priority />
       </a>
       <span class="spacer"></span>
-      @if(isSmallScreen$ |async) {
+      @if (isAuthenticated$ | async) { @if(isSmallScreen$ |async) {
       <a type="button" mat-icon-button class="nav-btn"
         ><mat-icon>bookmarks</mat-icon></a
       >
@@ -29,6 +29,15 @@
       >
       <a type="button" mat-button class="nav-btn" routerLink="history"
         ><mat-icon>message</mat-icon>Кандидатствания</a
+      >
+      } } @else {
+      <a
+        type="button"
+        mat-flat-button
+        color="primary"
+        class="nav-btn"
+        (click)="signIn()"
+        >Вход</a
       >
       }
 

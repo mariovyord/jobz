@@ -1,3 +1,7 @@
+:host {
+  width: 100%;
+}
+
 .wrapper {
   display: flex;
   gap: 1rem;
@@ -9,6 +13,13 @@
 
   .user-info {
     line-height: 1.5rem;
+    overflow: hidden;
+
+    .name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .email {
       font-size: 0.7rem;

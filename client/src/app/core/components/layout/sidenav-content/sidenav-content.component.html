@@ -1,5 +1,17 @@
 <mat-toolbar class="user-info">
+  @if (isAuthenticated$ | async) {
   <app-user-card></app-user-card>
+  } @else {
+
+  <a
+    type="button"
+    mat-flat-button
+    color="primary"
+    class="nav-btn"
+    (click)="signIn()"
+    >Вход</a
+  >
+  }
 </mat-toolbar>
 <mat-nav-list>
   <a
@@ -24,6 +36,7 @@
     <div matListItemTitle>IT Тенденции</div></a
   >
   <mat-divider></mat-divider>
+  @if (isAuthenticated$ | async) {
   <a mat-list-item routerLink="/my-account" routerLinkActive="is-active"
     ><mat-icon matListItemIcon>dashboard</mat-icon>
     <div matListItemTitle>Моят акаунт</div></a
@@ -40,14 +53,17 @@
     ><mat-icon matListItemIcon>playlist_add_check</mat-icon>
     <div matListItemTitle>Кандидатствания</div></a
   >
+  }
   <a mat-list-item routerLink="/contacts" routerLinkActive="is-active"
     ><mat-icon matListItemIcon>call</mat-icon>
     <div matListItemTitle>Контакти</div></a
   >
-  <a mat-list-item routerLink="/logout" routerLinkActive="is-active"
+  @if(isAuthenticated$ | async ) {
+  <a mat-list-item (click)="signOut()"
     ><mat-icon matListItemIcon>logout</mat-icon>
     <div matListItemTitle>Изход</div></a
   >
+  }
   <mat-divider></mat-divider>
 </mat-nav-list>
 <div class="language-picker">

@@ -11,6 +11,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 import { ResponsiveService } from '../../../shared/services/responsive.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-layout',
@@ -31,6 +32,14 @@ import { ResponsiveService } from '../../../shared/services/responsive.service';
 })
 export class LayoutComponent {
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
+  public isAuthenticated$ = this.userService.isAuthenticated$;
 
-  constructor(private responsiveService: ResponsiveService) {}
+  constructor(
+    private responsiveService: ResponsiveService,
+    private userService: UserService
+  ) {}
+
+  public signIn(): void {
+    this.userService.loginWithRedirect();
+  }
 }

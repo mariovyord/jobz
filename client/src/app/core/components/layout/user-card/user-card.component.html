@@ -1,7 +1,11 @@
 <a routerLink="/" class="wrapper">
-  <img ngSrc="/assets/profile.webp" width="40" height="40" />
+  <img
+    [ngSrc]="(user$ | async)?.picture || '/assets/profile.webp'"
+    width="40"
+    height="40"
+  />
   <div class="user-info">
-    <div>Mario Yordanov</div>
-    <div class="email">mariovyordanov&#64;gmail.com</div>
+    <div class="name">{{ (user$ | async)?.name }}</div>
+    <div class="email">{{ (user$ | async)?.email }}</div>
   </div>
 </a>
