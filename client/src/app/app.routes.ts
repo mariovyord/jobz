@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './features/home/home.component';
 import { SecondaryNavComponent } from './core/components/secondary-nav/secondary-nav.component';
-import { JobsComponent } from './pages/jobs/jobs.component';
-import { JobDetailsComponent } from './pages/job-details/job-details.component';
+import { JobsComponent } from './features/jobs/jobs.component';
+import { JobDetailsComponent } from './features/job-details/job-details.component';
 import { JobDetailsNavComponent } from './shared/components/job-details-nav/job-details-nav.component';
-import { CompanyDetailsComponent } from './pages/company-details/company-details.component';
-import { CompanyJobsComponent } from './pages/company-jobs/company-jobs.component';
-import { NotebookComponent } from './pages/notebook/notebook.component';
-import { HistoryComponent } from './pages/history/history.component';
-import { EducationComponent } from './pages/education/education.component';
-import { TrendsComponent } from './pages/trends/trends.component';
-import { BlogComponent } from './pages/blog/blog.component';
-import { PollsComponent } from './pages/polls/polls.component';
+import { CompanyDetailsComponent } from './features/company-details/company-details.component';
+import { CompanyJobsComponent } from './features/company-jobs/company-jobs.component';
+import { NotebookComponent } from './features/notebook/notebook.component';
+import { HistoryComponent } from './features/history/history.component';
+import { EducationComponent } from './features/education/education.component';
+import { TrendsComponent } from './features/trends/trends.component';
+import { BlogComponent } from './features/blog/blog.component';
+import { PollsComponent } from './features/polls/polls.component';
 
 export const routes: Routes = [
   {
