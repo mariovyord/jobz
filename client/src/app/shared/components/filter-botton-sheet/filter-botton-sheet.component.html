@@ -1,1 +1,35 @@
-<p>filter-botton-sheet works!</p>
+<header>
+  <mat-toolbar>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>{{ data.title }}</span>
+  </mat-toolbar>
+</header>
+<div class="content-wrapper">
+  <div class="content">
+    <mat-chip-set role="list" aria-label="select a shirt size">
+      <mat-chip-option> Small </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Large </mat-chip-option>
+      <mat-chip-option> Small </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Medium </mat-chip-option>
+      <mat-chip-option> Large </mat-chip-option>
+    </mat-chip-set>
+  </div>
+  <a
+    class="submit-btn"
+    mat-fab
+    extended
+    routerLink=""
+    [queryParams]="{ prop: 'xxx' }"
+  >
+    <mat-icon>send</mat-icon>
+    Потвърди
+  </a>
+</div>

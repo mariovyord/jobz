@@ -5,7 +5,7 @@ import {
   MatBottomSheet,
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
-import { filters } from './utils';
+import { mockFilters } from './utils';
 import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton-sheet.component';
 
 @Component({
@@ -16,12 +16,14 @@ import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton
   styleUrl: './filter-bar.component.less',
 })
 export class FilterBarComponent {
-  public filters = filters;
+  public filters = mockFilters;
 
   constructor(private _bottomSheet: MatBottomSheet) {}
 
-  public openBottomSheet() {
-    this._bottomSheet.open(FilterBottonSheetComponent);
+  public openBottomSheet(title: string, options: any[]) {
+    this._bottomSheet.open(FilterBottonSheetComponent, {
+      data: { title },
+    });
   }
 
   public clearFilters() {}
