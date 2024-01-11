@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
+import { FiltersService } from '../../shared/services/filters.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [MatCardModule, FilterBarComponent],
+  imports: [MatCardModule, FilterBarComponent, AsyncPipe],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.less',
 })
 export class BlogComponent {
+  public filters$ = this.filtersService.getBlogFilters$();
+
   public article = {
     id: '123123123123',
     slug: 'john-atanasoff-will',
@@ -22,4 +26,6 @@ export class BlogComponent {
   };
 
   public articles = new Array(16).fill(this.article);
+
+  constructor(private filtersService: FiltersService) {}
 }

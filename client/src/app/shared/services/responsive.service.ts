@@ -10,8 +10,7 @@ export class ResponsiveService {
   public isSmallScreen$ = this.observer.observe(Breakpoints.Handset).pipe(
     switchMap((x) => {
       return of(x.matches);
-    }),
-    shareReplay(1)
+    })
   );
 
   constructor(private observer: BreakpointObserver) {}

@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import {
   MatBottomSheet,
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
-import { mockFilters } from './utils';
 import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton-sheet.component';
+import { IFilter, IFilterOption } from '../../types/filter';
 
 @Component({
   selector: 'app-filter-bar',
@@ -16,13 +16,13 @@ import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton
   styleUrl: './filter-bar.component.less',
 })
 export class FilterBarComponent {
-  public filters = mockFilters;
+  @Input({ required: true }) filters: IFilter[];
 
   constructor(private _bottomSheet: MatBottomSheet) {}
 
-  public openBottomSheet(title: string, options: any[]) {
+  public openBottomSheet(title: string, options: IFilterOption[]) {
     this._bottomSheet.open(FilterBottonSheetComponent, {
-      data: { title },
+      data: { title, options },
     });
   }
 

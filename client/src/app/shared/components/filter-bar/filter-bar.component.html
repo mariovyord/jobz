@@ -1,8 +1,8 @@
 <mat-chip-set role="list">
   @for(filter of filters; track filter.key) {
-  <mat-chip-option (click)="openBottomSheet(filter.title, filter.options)">
+  <mat-chip-option (click)="openBottomSheet(filter.key, filter.options)">
     <span class="title">
-      {{ filter.title }}
+      {{ filter.key }}
     </span>
   </mat-chip-option>
   }

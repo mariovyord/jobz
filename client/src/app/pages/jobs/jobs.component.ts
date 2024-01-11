@@ -6,6 +6,7 @@ import { BreakpointObserver, LayoutModule } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ResponsiveService } from '../../shared/services/responsive.service';
+import { FiltersService } from '../../shared/services/filters.service';
 
 @UntilDestroy()
 @Component({
@@ -22,8 +23,12 @@ import { ResponsiveService } from '../../shared/services/responsive.service';
   styleUrl: './jobs.component.less',
 })
 export class JobsComponent {
+  public filters$ = this.filtersService.getJobFilters$();
   public jobs = new Array(10);
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
 
-  constructor(private responsiveService: ResponsiveService) {}
+  constructor(
+    private responsiveService: ResponsiveService,
+    private filtersService: FiltersService
+  ) {}
 }

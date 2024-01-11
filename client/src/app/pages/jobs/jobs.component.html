@@ -1,4 +1,4 @@
-<app-filter-bar></app-filter-bar>
+<app-filter-bar [filters]="filters$ | async"></app-filter-bar>
 <div class="content">
   <app-job-feed></app-job-feed>
   @if(!(isSmallScreen$ | async)) {

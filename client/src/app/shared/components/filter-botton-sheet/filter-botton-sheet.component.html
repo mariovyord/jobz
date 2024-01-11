@@ -9,25 +9,23 @@
 <div class="content-wrapper">
   <div class="content">
     <mat-chip-set role="list" aria-label="select a shirt size">
-      <mat-chip-option> Small </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Large </mat-chip-option>
-      <mat-chip-option> Small </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Medium </mat-chip-option>
-      <mat-chip-option> Large </mat-chip-option>
+      @for(option of data.options; track option.id) {
+      <mat-chip-option
+        [selected]="!!selectedFilters[option.key]"
+        (selectionChange)="chipSelectionChange($event, option)"
+      >
+        {{ option.key }}
+      </mat-chip-option>
+      }
     </mat-chip-set>
   </div>
   <a
     class="submit-btn"
     mat-fab
     extended
-    routerLink=""
-    [queryParams]="{ prop: 'xxx' }"
+    routerLink="."
+    [queryParams]="getParams()"
+    (click)="close()"
   >
     <mat-icon>send</mat-icon>
     Потвърди
