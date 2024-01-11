@@ -5,12 +5,10 @@
     [selectable]="false"
     (click)="openBottomSheet(filter.key, filter.options)"
   >
-    <span class="title">
-      {{ filter.key }}
-    </span>
+    <span class="title"> {{ filter.key | translate }} </span>
   </mat-chip-option>
   }
   <mat-chip class="clear-btn" (click)="clearFilters()">
-    <span class="title">Изчисти</span>
+    <span class="title">{{ "clear" | translate }}</span>
   </mat-chip>
 </mat-chip-set>

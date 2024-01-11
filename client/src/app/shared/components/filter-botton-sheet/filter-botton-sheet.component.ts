@@ -14,6 +14,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IFilterOption } from '../../types/filter';
 import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TranslateModule } from '@ngx-translate/core';
 
 @UntilDestroy()
 @Component({
@@ -26,6 +27,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
     RouterModule,
     MatChipsModule,
     AsyncPipe,
+    TranslateModule,
   ],
   templateUrl: './filter-botton-sheet.component.html',
   styleUrl: './filter-botton-sheet.component.less',

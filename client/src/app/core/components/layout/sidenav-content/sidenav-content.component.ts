@@ -5,6 +5,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../../shared/services/language.service';
 
 @Component({
   selector: 'app-sidenav-content',
@@ -16,8 +18,19 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     UserCardComponent,
     RouterModule,
+    TranslateModule,
   ],
   templateUrl: './sidenav-content.component.html',
   styleUrl: './sidenav-content.component.less',
 })
-export class SidenavContentComponent {}
+export class SidenavContentComponent {
+  constructor(
+    public translate: TranslateService,
+    private langService: LanguageService
+  ) {}
+
+  public changeLanguage(lang: 'en' | 'bg'): void {
+    this.langService.setLanguage(lang);
+    this.translate.use(lang);
+  }
+}

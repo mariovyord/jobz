@@ -51,6 +51,6 @@
   <mat-divider></mat-divider>
 </mat-nav-list>
 <div class="language-picker">
-  <button mat-flat-button>Български</button>
-  <button mat-flat-button>English</button>
+  <button mat-flat-button (click)="changeLanguage('bg')">Български</button>
+  <button mat-flat-button (click)="changeLanguage('en')">English</button>
 </div>

@@ -9,12 +9,18 @@ import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton
 import { IFilter, IFilterOption } from '../../types/filter';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TranslateModule } from '@ngx-translate/core';
 
 @UntilDestroy()
 @Component({
   selector: 'app-filter-bar',
   standalone: true,
-  imports: [MatChipsModule, MatButtonModule, MatBottomSheetModule],
+  imports: [
+    MatChipsModule,
+    MatButtonModule,
+    MatBottomSheetModule,
+    TranslateModule,
+  ],
   templateUrl: './filter-bar.component.html',
   styleUrl: './filter-bar.component.less',
 })

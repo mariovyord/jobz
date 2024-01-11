@@ -24,6 +24,8 @@
     "@auth0/angular-jwt": "^5.2.0",
     "@auth0/auth0-angular": "^2.2.2",
     "@ngneat/until-destroy": "^10.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
