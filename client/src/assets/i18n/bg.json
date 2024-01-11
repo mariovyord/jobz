@@ -51,14 +51,14 @@
   "objective-c": "Objective-C",
   "groovy": "Groovy",
 
-  "job-type": "Тип на Работа",
+  "job-type": "Вид заетост",
   "full-time": "Пълен работен ден",
   "part-time": "Непълен работен ден",
   "freelance": "Фрийланс",
   "internship": "Стаж",
 
   "job-interview": "Интервю",
-  "on-site": "На Място",
+  "on-site": "На място",
   "phone": "Телефон",
   "online": "Онлайн",
 
@@ -98,5 +98,8 @@
   "last-fourteen-days": "Последни 14 дни",
 
   "clear": "Изчисти",
-  "key-words": "Ключови думи"
+  "key-words": "Ключови думи",
+
+  "location": "Локация",
+  "salary": "Заплата"
 }

@@ -60,6 +60,11 @@ export const mockFilters = [
     ],
   },
   {
+    id: '33',
+    key: 'location',
+    options: [],
+  },
+  {
     id: '3',
     key: 'key-words',
     options: [],
@@ -99,6 +104,11 @@ export const mockFilters = [
     id: '9',
     key: 'from',
     options: [{ key: 'company' }, { key: 'recruiter' }],
+  },
+  {
+    id: '10',
+    key: 'salary',
+    options: [],
   },
   {
     id: '12',

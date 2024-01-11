@@ -11,26 +11,23 @@ export class FiltersService {
     const filters = [
       'domain',
       'tech-stack',
+      'location',
       'key-words',
-      'type',
+      'job-type',
       'job-interview',
-      'remote-work',
-      'domain',
       'level',
-      'expirience',
+      'experience',
       'from',
-      'pay',
-      'time-off',
+      'salary',
       'languages',
-      'refugee-status',
-      'date',
+      'published',
     ];
 
     return this.getFilters$(filters);
   }
 
   public getBlogFilters$() {
-    const filters = ['date'];
+    const filters = ['published'];
     return this.getFilters$(filters);
   }
 

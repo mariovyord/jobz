@@ -8,7 +8,9 @@
     <span class="title"> {{ filter.key | translate }} </span>
   </mat-chip-option>
   }
-  <mat-chip class="clear-btn" (click)="clearFilters()">
-    <span class="title">{{ "clear" | translate }}</span>
-  </mat-chip>
+  <div class="clear-btn-wrapper">
+    <mat-chip class="clear-btn" (click)="clearFilters()">
+      <span class="title">{{ "clear" | translate }}</span>
+    </mat-chip>
+  </div>
 </mat-chip-set>

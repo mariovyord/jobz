@@ -98,5 +98,8 @@
   "last-fourteen-days": "Last 14 days",
 
   "clear": "Clear",
-  "key-words": "Key Words"
+  "key-words": "Key Words",
+
+  "location": "Location",
+  "salary": "Salary"
 }

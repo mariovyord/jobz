@@ -7,7 +7,7 @@ import {
 } from '@angular/material/bottom-sheet';
 import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton-sheet.component';
 import { IFilter, IFilterOption } from '../../types/filter';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -27,14 +27,17 @@ import { TranslateModule } from '@ngx-translate/core';
 export class FilterBarComponent implements OnInit {
   public selectedCategories: { [key: string]: IFilter } = {};
 
-  @Input({ required: true }) filters: IFilter[];
+  @Input({ required: true }) public filters: IFilter[];
 
   constructor(
     private _bottomSheet: MatBottomSheet,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   public ngOnInit(): void {
+    console.log(this.filters);
+
     this.route.queryParams.pipe(untilDestroyed(this)).subscribe((params) => {
       this.selectedCategories = {};
 
@@ -53,5 +56,7 @@ export class FilterBarComponent implements OnInit {
     });
   }
 
-  public clearFilters() {}
+  public clearFilters() {
+    this.router.navigate([]);
+  }
 }
