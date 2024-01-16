@@ -1,15 +1,17 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 const databaseConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: 'localhost',
-  port: 6543,
-  password: '123123',
+  port: 5432,
   username: 'postgres',
+  password: 'password',
   autoLoadEntities: true,
-  database: 'postit',
+  database: 'jobz',
   synchronize: true,
   logging: true,
+  namingStrategy: new SnakeNamingStrategy(),
 };
 
 export default databaseConfig;
