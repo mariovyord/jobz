@@ -1,26 +1,49 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateFilterDto } from './dto/create-filter.dto';
 import { UpdateFilterDto } from './dto/update-filter.dto';
+import { Filter } from './entities/filter.entity';
 
 @Injectable()
 export class FilterService {
-  create(createFilterDto: CreateFilterDto) {
-    return 'This action adds a new filter';
+  constructor(
+    @InjectRepository(Filter) private filterRepository: Repository<Filter>,
+  ) {}
+
+  async create(createFilterDto: CreateFilterDto): Promise<Filter> {
+    const newFilter = this.filterRepository.create(createFilterDto);
+    return await this.filterRepository.save(newFilter);
   }
 
-  findAll() {
-    return `This action returns all filters`;
+  async findAll(): Promise<Filter[]> {
+    return await this.filterRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} filter`;
+  async findOne(id: string): Promise<Filter> {
+    const filter = await this.filterRepository.findOneBy({ id });
+
+    if (!filter) {
+      throw new NotFoundException(`Filter with ID ${id} not found`);
+    }
+
+    return filter;
   }
 
-  update(id: number, updateFilterDto: UpdateFilterDto) {
-    return `This action updates a #${id} filter`;
+  async update(id: string, updateFilterDto: UpdateFilterDto): Promise<Filter> {
+    const existingFilter = await this.findOne(id);
+
+    // Merge the existing filter with the updateFilterDto
+    const updatedFilter = this.filterRepository.merge(
+      existingFilter,
+      updateFilterDto,
+    );
+
+    return await this.filterRepository.save(updatedFilter);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} filter`;
+  async remove(id: string): Promise<void> {
+    const filter = await this.findOne(id);
+    await this.filterRepository.remove(filter);
   }
 }

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { JobApplicationService } from './job-application.service';
 import { CreateJobApplicationDto } from './dto/create-job-application.dto';
 import { UpdateJobApplicationDto } from './dto/update-job-application.dto';
@@ -19,16 +27,19 @@ export class JobApplicationController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.jobApplicationService.findOne(+id);
+    return this.jobApplicationService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateJobApplicationDto: UpdateJobApplicationDto) {
-    return this.jobApplicationService.update(+id, updateJobApplicationDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateJobApplicationDto: UpdateJobApplicationDto,
+  ) {
+    return this.jobApplicationService.update(id, updateJobApplicationDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.jobApplicationService.remove(+id);
+    return this.jobApplicationService.remove(id);
   }
 }

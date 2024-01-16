@@ -27,16 +27,16 @@ export class FilterController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.filterService.findOne(+id);
+    return this.filterService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFilterDto: UpdateFilterDto) {
-    return this.filterService.update(+id, updateFilterDto);
+    return this.filterService.update(id, updateFilterDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.filterService.remove(+id);
+    return this.filterService.remove(id);
   }
 }
