@@ -11,7 +11,7 @@ import { FilterService } from './filter.service';
 import { CreateFilterDto } from './dto/create-filter.dto';
 import { UpdateFilterDto } from './dto/update-filter.dto';
 
-@Controller('filter')
+@Controller('filters')
 export class FilterController {
   constructor(private readonly filterService: FilterService) {}
 
