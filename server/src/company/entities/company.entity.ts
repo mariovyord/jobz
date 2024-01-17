@@ -1,3 +1,4 @@
+import { Article } from 'src/article/entities/article.entity';
 import { Job } from 'src/job/entities/job.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -8,6 +9,9 @@ export class Company {
 
   @OneToMany(() => Job, (j) => j.company)
   jobs: Job[];
+
+  @OneToMany(() => Article, (j) => j.company)
+  articles: Article[];
 
   @Column({ type: 'varchar', length: 300 })
   owner: string;
@@ -27,10 +31,10 @@ export class Company {
   @Column({ type: 'int' })
   worldFrom: number;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 200 })
   bulgariaLocation: string;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 200 })
   worldLocation: string;
 
   @Column({ type: 'int' })
@@ -45,6 +49,6 @@ export class Company {
   @Column({ type: 'varchar', length: 200 })
   email: string;
 
-  @Column({ type: 'varchar', length: 300 })
+  @Column({ type: 'varchar', length: 200 })
   legalName: string;
 }

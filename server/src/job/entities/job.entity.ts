@@ -25,10 +25,10 @@ export class Job {
   @ManyToOne(() => JobApplication, (j) => j.job)
   jobApplications: JobApplication[];
 
-  @Column({ type: 'date' })
+  @Column({ type: 'timestamp' })
   createdAt: Date;
 
-  @Column({ type: 'date' })
+  @Column({ type: 'timestamp' })
   updatedAt: Date;
 
   @Column({ type: 'varchar', length: 4000 })

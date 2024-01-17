@@ -1,0 +1,59 @@
+// https://dbdiagram.io/d
+
+Table job {
+  id UUID [pk]
+  company UUID [ref: > company.id]
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  content VARCHAR(4000)
+  domain VARCHAR(200)
+  location VARCHAR(200)
+  level VARCHAR(200)
+  remote VARCHAR(200)
+  type VARCHAR(200)
+  hours VARCHAR(200)
+  interview VARCHAR(200)
+  image_url VARCHAR(500)
+}
+
+Table company {
+  id UUID [pk]
+  owner VARCHAR(300)
+  shortDescription VARCHAR(300)
+  fullDescription VARCHAR(2000)
+  logoUrl VARCHAR(500)
+  bulgariaFrom INT
+  worldFrom INT
+  bulgariaLocation VARCHAR(200)
+  worldLocation VARCHAR(200)
+  foundedIn INT
+  employeesCount INT
+  address VARCHAR(500)
+  email VARCHAR(200)
+  legalName VARCHAR(200)
+}
+
+Table article {
+  id UUID [pk]
+  company UUID [ref: > company.id]
+  content VARCHAR(5000)
+  image_url VARCHAR(500)
+}
+
+Table filter {
+  id UUID [pk]
+  name VARCHAR(200)
+  type VARCHAR(200)
+}
+
+Table job_filter {
+  id UUID [pk]
+  filter_id UUID [ref: > filter.id]
+  job_id UUID [ref: > job.id]
+}
+
+Table job_application {
+  id UUID [pk]
+  user_id VARCHAR(300)
+  job UUID [ref: > job.id]
+}
