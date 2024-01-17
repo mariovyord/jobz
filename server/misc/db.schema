@@ -57,3 +57,9 @@ Table job_application {
   user_id VARCHAR(300)
   job UUID [ref: > job.id]
 }
+
+Table bookmark {
+  id UUID [pk]
+  user_id VARCHAR(300)
+  job UUID [ref: > job.id]
+}

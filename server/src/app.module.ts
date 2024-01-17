@@ -8,6 +8,7 @@ import { CompanyModule } from './company/company.module';
 import { ArticleModule } from './article/article.module';
 import { JobApplicationModule } from './job-application/job-application.module';
 import { FilterModule } from './filter/filter.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
 import databaseConfig from './config/database.config';
 
 @Module({
@@ -19,6 +20,7 @@ import databaseConfig from './config/database.config';
     ArticleModule,
     JobApplicationModule,
     TypeOrmModule.forRoot(databaseConfig),
+    BookmarkModule,
   ],
   controllers: [AppController],
   providers: [AppService],
