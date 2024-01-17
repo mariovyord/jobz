@@ -63,3 +63,11 @@ Table bookmark {
   user_id VARCHAR(300)
   job UUID [ref: > job.id]
 }
+
+Table account {
+  id UUID [pk]
+  user_id VARCHAR(300)
+  first_name VARCHAR(200)
+  last_name VARCHAR(200)
+  cv_url VARCHAR(500)
+}
