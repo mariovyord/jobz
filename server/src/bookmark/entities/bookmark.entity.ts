@@ -16,8 +16,8 @@ export class Bookmark {
 
   @OneToOne(() => Job)
   @JoinColumn()
-  job: string;
+  job: Job;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200 })
   userId: string;
 }
