@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { UpdateBookmarkDto } from './dto/update-bookmark.dto';
 import { Bookmark } from './entities/bookmark.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 @Injectable()
 export class BookmarkService {
@@ -12,6 +13,7 @@ export class BookmarkService {
     private bookmarkRepository: Repository<Bookmark>,
   ) {}
 
+  @UseGuards(AuthGuard('jwt'))
   async create(createBookmarkDto: CreateBookmarkDto): Promise<Bookmark> {
     const newBookmark = this.bookmarkRepository.create(createBookmarkDto);
     return await this.bookmarkRepository.save(newBookmark);
@@ -31,6 +33,7 @@ export class BookmarkService {
     return bookmark;
   }
 
+  @UseGuards(AuthGuard('jwt'))
   async update(
     id: string,
     updateBookmarkDto: UpdateBookmarkDto,
@@ -46,6 +49,7 @@ export class BookmarkService {
     return await this.bookmarkRepository.save(updatedBookmark);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   async remove(id: string): Promise<void> {
     const bookmark = await this.findOne(id);
     await this.bookmarkRepository.remove(bookmark);
