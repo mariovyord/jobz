@@ -4,6 +4,7 @@ import { JobApplication } from 'src/job-application/entities/job-application.ent
 import {
   Column,
   Entity,
+  JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
@@ -15,11 +16,19 @@ export class Job {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column({ type: 'uuid' })
+  companyId: string;
+
   @ManyToOne(() => Company, (c) => c.jobs)
+  @JoinColumn({ name: 'companyId' })
   company: Company;
 
   @ManyToMany(() => Filter)
-  @JoinTable()
+  @JoinTable({
+    name: 'job_filters',
+    joinColumn: { name: 'jobId', referencedColumnName: 'id' },
+    inverseJoinColumn: { name: 'filterId', referencedColumnName: 'id' },
+  })
   filters: Filter[];
 
   @ManyToOne(() => JobApplication, (j) => j.job)

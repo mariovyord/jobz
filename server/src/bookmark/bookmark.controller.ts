@@ -15,7 +15,7 @@ import { UpdateBookmarkDto } from './dto/update-bookmark.dto';
 import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
 import { AuthGuard } from '@nestjs/passport';
 
-@Controller('bookmark')
+@Controller('bookmarks')
 export class BookmarkController {
   constructor(private readonly bookmarkService: BookmarkService) {}
 

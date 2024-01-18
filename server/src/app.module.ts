@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthzModule } from './authz/authz.module';
 import { JobModule } from './job/job.module';
@@ -25,6 +24,6 @@ import databaseConfig from './config/database.config';
     AccountModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

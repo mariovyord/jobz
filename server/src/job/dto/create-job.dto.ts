@@ -3,7 +3,7 @@ import { IsNotEmpty, IsUrl, IsString, IsArray, IsUUID } from 'class-validator';
 export class CreateJobDto {
   @IsNotEmpty()
   @IsUUID('4')
-  company: string;
+  companyId: string;
 
   @IsArray()
   @IsNotEmpty()
@@ -11,7 +11,7 @@ export class CreateJobDto {
     each: true,
     message: 'Each element in filters must be a valid UUIDv4',
   })
-  filters: string[];
+  filtersIds: string[];
 
   @IsNotEmpty()
   @IsString()

@@ -15,7 +15,7 @@ import { UpdateAccountDto } from './dto/update-account.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
 
-@Controller('account')
+@Controller('accounts')
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
