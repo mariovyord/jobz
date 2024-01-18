@@ -23,6 +23,7 @@ export class AccountController {
   @Post()
   @UseInterceptors(SetUserIdInterceptor)
   create(@Body() createAccountDto: CreateAccountDto) {
+    console.log(createAccountDto);
     return this.accountService.create(createAccountDto);
   }
 

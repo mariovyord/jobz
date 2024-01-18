@@ -3,12 +3,14 @@ import { Filter } from 'src/filter/entities/filter.entity';
 import { JobApplication } from 'src/job-application/entities/job-application.entity';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -20,7 +22,7 @@ export class Job {
   companyId: string;
 
   @ManyToOne(() => Company, (c) => c.jobs)
-  @JoinColumn({ name: 'companyId' })
+  @JoinColumn({ name: 'company_id' })
   company: Company;
 
   @ManyToMany(() => Filter)
@@ -34,10 +36,17 @@ export class Job {
   @ManyToOne(() => JobApplication, (j) => j.job)
   jobApplications: JobApplication[];
 
-  @Column({ type: 'timestamp' })
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   createdAt: Date;
 
-  @Column({ type: 'timestamp' })
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
   updatedAt: Date;
 
   @Column({ type: 'varchar', length: 4000 })
