@@ -13,7 +13,7 @@ export class JobApplication {
   id: string;
 
   @Column({ type: 'varchar', length: 300 })
-  user_id: string;
+  userId: string;
 
   @ManyToOne(() => Job, (job) => job.jobApplications)
   @JoinColumn({ name: 'jobId' })

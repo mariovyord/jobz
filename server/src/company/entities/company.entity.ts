@@ -14,7 +14,7 @@ export class Company {
   articles: Article[];
 
   @Column({ type: 'varchar', length: 300 })
-  owner: string;
+  userId: string;
 
   @Column({ type: 'varchar', length: 300 })
   shortDescription: string;

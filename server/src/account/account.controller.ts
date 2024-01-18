@@ -7,11 +7,13 @@ import {
   Param,
   Delete,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { AccountService } from './account.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
 
 @Controller('account')
 export class AccountController {
@@ -19,6 +21,7 @@ export class AccountController {
 
   @UseGuards(AuthGuard('jwt'))
   @Post()
+  @UseInterceptors(SetUserIdInterceptor)
   create(@Body() createAccountDto: CreateAccountDto) {
     return this.accountService.create(createAccountDto);
   }
