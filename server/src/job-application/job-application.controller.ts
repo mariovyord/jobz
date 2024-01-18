@@ -12,14 +12,14 @@ import {
 import { JobApplicationService } from './job-application.service';
 import { CreateJobApplicationDto } from './dto/create-job-application.dto';
 import { UpdateJobApplicationDto } from './dto/update-job-application.dto';
-import { AuthGuard } from '@nestjs/passport';
 import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
+import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('job-applications')
 export class JobApplicationController {
   constructor(private readonly jobApplicationService: JobApplicationService) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Post()
   @UseInterceptors(SetUserIdInterceptor)
   create(@Body() createJobApplicationDto: CreateJobApplicationDto) {
@@ -36,7 +36,7 @@ export class JobApplicationController {
     return this.jobApplicationService.findOne(id);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -45,7 +45,7 @@ export class JobApplicationController {
     return this.jobApplicationService.update(id, updateJobApplicationDto);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.jobApplicationService.remove(id);

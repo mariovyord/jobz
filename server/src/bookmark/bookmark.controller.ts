@@ -13,13 +13,13 @@ import { BookmarkService } from './bookmark.service';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { UpdateBookmarkDto } from './dto/update-bookmark.dto';
 import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
-import { AuthGuard } from '@nestjs/passport';
+import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('bookmarks')
 export class BookmarkController {
   constructor(private readonly bookmarkService: BookmarkService) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Post()
   @UseInterceptors(SetUserIdInterceptor)
   create(@Body() createBookmarkDto: CreateBookmarkDto) {
@@ -36,7 +36,7 @@ export class BookmarkController {
     return this.bookmarkService.findOne(id);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -45,7 +45,7 @@ export class BookmarkController {
     return this.bookmarkService.update(id, updateBookmarkDto);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.bookmarkService.remove(id);

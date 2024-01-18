@@ -11,13 +11,13 @@ import {
 import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
-import { AuthGuard } from '@nestjs/passport';
+import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('jobs')
 export class JobController {
   constructor(private readonly jobService: JobService) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Post()
   create(@Body() createJobDto: CreateJobDto) {
     return this.jobService.create(createJobDto);
@@ -33,13 +33,13 @@ export class JobController {
     return this.jobService.findOne(id);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateJobDto: UpdateJobDto) {
     return this.jobService.update(id, updateJobDto);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.jobService.remove(id);
