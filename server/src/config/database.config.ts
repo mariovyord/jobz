@@ -9,9 +9,10 @@ const databaseConfig: TypeOrmModuleOptions = {
   password: 'password',
   autoLoadEntities: true,
   database: 'jobz',
-  synchronize: true,
   logging: true,
   namingStrategy: new SnakeNamingStrategy(),
+  migrations: ['../migrations/*.ts'],
+  migrationsRun: true,
 };
 
 export default databaseConfig;
