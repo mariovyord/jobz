@@ -7,6 +7,10 @@ import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
+import { JobsService } from '../../shared/services/jobs/jobs.service';
+import { Observable } from 'rxjs';
+import { IJob } from '../../shared/types/job';
+import { IFilterByType } from '../../shared/types/filter';
 
 @UntilDestroy()
 @Component({
@@ -22,13 +26,19 @@ import { FiltersService } from '../../shared/services/filters.service';
   templateUrl: './jobs.component.html',
   styleUrl: './jobs.component.less',
 })
-export class JobsComponent {
-  public filters$ = this.filtersService.getJobFilters$();
-  public jobs = new Array(10);
+export class JobsComponent implements OnInit {
+  public filters$: Observable<IFilterByType[]>;
+  public jobs$: Observable<IJob[]>;
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
 
   constructor(
     private responsiveService: ResponsiveService,
-    private filtersService: FiltersService
+    private filtersService: FiltersService,
+    private jobsService: JobsService
   ) {}
+
+  public ngOnInit(): void {
+    this.jobs$ = this.jobsService.getAllJobs$();
+    this.filters$ = this.filtersService.getAllFiltersByType$();
+  }
 }

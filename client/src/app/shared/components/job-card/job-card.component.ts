@@ -1,10 +1,11 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { IJob } from '../../types/job';
 
 @Component({
   selector: 'app-job-card',
@@ -19,4 +20,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.less',
 })
-export class JobCardComponent {}
+export class JobCardComponent {
+  @Input({ required: true }) job: IJob;
+}

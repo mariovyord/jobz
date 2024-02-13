@@ -6,7 +6,7 @@ import {
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
 import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton-sheet.component';
-import { IFilter, IFilterOption } from '../../types/filter';
+import { IFilter, IFilterByType } from '../../types/filter';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';
@@ -25,9 +25,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './filter-bar.component.less',
 })
 export class FilterBarComponent implements OnInit {
-  public selectedCategories: { [key: string]: IFilter } = {};
-
-  @Input({ required: true }) public filters: IFilter[];
+  public selectedCategories: { [key: string]: IFilterByType } = {};
+  @Input({ required: true }) public filters: IFilterByType[];
 
   constructor(
     private _bottomSheet: MatBottomSheet,
@@ -36,11 +35,12 @@ export class FilterBarComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    console.log(this.filters);
     this.route.queryParams.pipe(untilDestroyed(this)).subscribe((params) => {
       this.selectedCategories = {};
 
       for (let param of Object.keys(params)) {
-        const filter = this.filters.find((x) => x.key === param);
+        const filter = this.filters.find((x) => x.type === param);
         if (filter) {
           this.selectedCategories[param] = filter;
         }
@@ -48,9 +48,9 @@ export class FilterBarComponent implements OnInit {
     });
   }
 
-  public openBottomSheet(title: string, options: IFilterOption[]) {
+  public openBottomSheet(filters: IFilterByType) {
     this._bottomSheet.open(FilterBottonSheetComponent, {
-      data: { title, options },
+      data: filters,
     });
   }
 

@@ -11,10 +11,10 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { IFilterOption } from '../../types/filter';
 import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';
+import { IFilter, IFilterByType } from '../../types/filter';
 
 @UntilDestroy()
 @Component({
@@ -33,27 +33,29 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './filter-botton-sheet.component.less',
 })
 export class FilterBottonSheetComponent implements OnInit {
-  public selectedFilters: { [key: string]: IFilterOption } = {};
+  public selectedFilters: { [key: string]: IFilter } = {};
 
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA)
-    public data: { title: string; options: IFilterOption[] },
+    public data: { filters: IFilterByType },
     private _bottomSheetRef: MatBottomSheetRef<FilterBottonSheetComponent>,
     private route: ActivatedRoute
   ) {}
 
   public ngOnInit(): void {
     this.route.queryParams.pipe(untilDestroyed(this)).subscribe((params) => {
-      const category = params[this.data.title];
+      const category = params[this.data.filters.type];
       if (!category) return;
 
       const selected = category.split('+');
 
       for (let param of selected) {
-        const selected = this.data.options.find((x) => x.key === param);
+        const selected = this.data.filters.options.find(
+          (x) => x.name === param
+        );
 
         if (selected) {
-          this.selectedFilters[selected.key] = selected;
+          this.selectedFilters[selected.name] = selected;
         }
       }
     });
@@ -77,8 +79,8 @@ export class FilterBottonSheetComponent implements OnInit {
     }
 
     return {
-      [this.data.title]: Object.values(this.selectedFilters)
-        .map((y) => y.key)
+      [this.data.filters.type]: Object.values(this.selectedFilters)
+        .map((y) => y.name)
         .join('+'),
     };
   }

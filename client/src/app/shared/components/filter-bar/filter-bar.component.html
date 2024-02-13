@@ -1,11 +1,11 @@
 <mat-chip-set role="list">
-  @for(filter of filters; track filter.key) {
+  @for(filter of filters; track filter.type) {
   <mat-chip-option
-    [selected]="!!selectedCategories[filter.key]"
+    [selected]="!!selectedCategories[filter.type]"
     [selectable]="false"
-    (click)="openBottomSheet(filter.key, filter.options)"
+    (click)="openBottomSheet(filter)"
   >
-    <span class="title"> {{ filter.key | translate }} </span>
+    <span class="title"> {{ filter.type | translate }} </span>
   </mat-chip-option>
   }
   <div class="clear-btn-wrapper">

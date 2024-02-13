@@ -22,7 +22,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './home.component.less',
 })
 export class HomeComponent {
-  public filters$ = this.filtersService.getJobFilters$();
+  public filters$ = this.filtersService.getAllFiltersByType$();
 
   constructor(private filtersService: FiltersService) {}
 }

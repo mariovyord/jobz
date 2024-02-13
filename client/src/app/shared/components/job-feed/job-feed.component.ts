@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { JobCardComponent } from '../job-card/job-card.component';
-import { JobFeedService } from './services/job-feed.service';
+import { IJob } from '../../types/job';
 
 @Component({
   selector: 'app-job-feed',
@@ -11,6 +11,5 @@ import { JobFeedService } from './services/job-feed.service';
 })
 export class JobFeedComponent {
   @Input() public mode: 'job' | 'edu' = 'job';
-
-  constructor(private jobFeedService: JobFeedService) {}
+  @Input() public jobs: IJob[] | null;
 }

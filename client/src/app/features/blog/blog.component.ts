@@ -12,7 +12,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './blog.component.less',
 })
 export class BlogComponent {
-  public filters$ = this.filtersService.getBlogFilters$();
+  public filters$ = this.filtersService.getFiltersOfTypes$('domain');
 
   public article = {
     id: '123123123123',

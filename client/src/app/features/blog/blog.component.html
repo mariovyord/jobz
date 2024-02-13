@@ -1,4 +1,4 @@
-<app-filter-bar [filters]="filters$ | async"></app-filter-bar>
+<app-filter-bar [filters]="(filters$ | async) || []"></app-filter-bar>
 <div class="articles-wrapper">
   @for (article of articles; track article.id) {
   <mat-card class="card">

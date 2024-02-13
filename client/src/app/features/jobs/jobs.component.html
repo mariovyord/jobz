@@ -1,6 +1,6 @@
-<app-filter-bar [filters]="filters$ | async"></app-filter-bar>
+<app-filter-bar [filters]="(filters$ | async) || []"></app-filter-bar>
 <div class="content">
-  <app-job-feed></app-job-feed>
+  <app-job-feed [jobs]="jobs$ | async"></app-job-feed>
   @if(!(isSmallScreen$ | async)) {
   <app-top-companies></app-top-companies>
   }

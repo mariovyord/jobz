@@ -1,38 +1,60 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { mockFilters } from '../../mocks/filters.mock';
+import { Observable, filter, map, of, switchMap, tap } from 'rxjs';
+import { DataService } from '../../core/services/api/data.service';
+import { IFilter, IFilterByType } from '../types/filter';
 
 // TODO: Save filters to localStorage and reuse them
 @Injectable({
   providedIn: 'root',
 })
-export class FiltersService {
-  public getJobFilters$() {
-    const filters = [
-      'domain',
-      'tech-stack',
-      'location',
-      'key-words',
-      'job-type',
-      'job-interview',
-      'level',
-      'experience',
-      'from',
-      'salary',
-      'languages',
-      'published',
-    ];
-
-    return this.getFilters$(filters);
+export class FiltersService extends DataService<IFilter> {
+  override getPath(): string {
+    return 'filters';
   }
 
-  public getBlogFilters$() {
-    const filters = ['published'];
-    return this.getFilters$(filters);
+  private filters: IFilter[];
+
+  public getAllFiltersByType$(): Observable<IFilterByType[]> {
+    return this.getAll$().pipe(
+      map(this.groupByType),
+      map((v) => Object.values(v))
+    );
   }
 
-  public getFilters$(filterKeys: string[]): Observable<any> {
-    const filtered = mockFilters.filter((f) => filterKeys.includes(f.key));
-    return of(filtered);
+  public getFiltersOfTypes$(...types: string[]): Observable<IFilterByType[]> {
+    return this.getAll$().pipe(
+      switchMap((f) => of(this.getFiltersOfTypes(f, types)))
+    );
+  }
+
+  private getFiltersOfTypes(
+    filters: IFilter[],
+    types: string[]
+  ): IFilterByType[] {
+    const res: IFilterByType[] = [];
+
+    const reduced = this.groupByType(filters);
+    for (const type of types) {
+      if (reduced[type]) {
+        res.push(reduced[type]);
+      }
+    }
+
+    return res;
+  }
+
+  private groupByType(filters: IFilter[]): Record<string, IFilterByType> {
+    return filters.reduce((acc: Record<string, IFilterByType>, x: IFilter) => {
+      if (!acc[x.type]) {
+        acc[x.type] = {
+          type: x.type,
+          options: [],
+        };
+      }
+
+      acc[x.type].options.push(x);
+
+      return acc;
+    }, {});
   }
 }

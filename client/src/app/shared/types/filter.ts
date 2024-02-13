@@ -1,10 +1,10 @@
-export interface IFilterOption {
+export interface IFilter {
   id: string;
-  key: string;
+  name: string;
+  type: string;
 }
 
-export interface IFilter {
-  key: string;
-  id: string;
-  options: IFilterOption[];
+export interface IFilterByType {
+  type: string;
+  options: IFilter[];
 }
