@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, filter, map, of, switchMap, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  filter,
+  map,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { DataService } from '../../core/services/api/data.service';
 import { IFilter, IFilterByType } from '../types/filter';
 
@@ -12,19 +20,27 @@ export class FiltersService extends DataService<IFilter> {
     return 'filters';
   }
 
-  private filters: IFilter[];
+  private filters$ = new BehaviorSubject<IFilter[]>([]);
 
   public getAllFiltersByType$(): Observable<IFilterByType[]> {
-    return this.getAll$().pipe(
+    const source$ =
+      this.filters$.value.length !== 0
+        ? this.filters$
+        : this.getAll$().pipe(tap((v) => this.filters$.next(v)));
+
+    return source$.pipe(
       map(this.groupByType),
       map((v) => Object.values(v))
     );
   }
 
   public getFiltersOfTypes$(...types: string[]): Observable<IFilterByType[]> {
-    return this.getAll$().pipe(
-      switchMap((f) => of(this.getFiltersOfTypes(f, types)))
-    );
+    const source$ =
+      this.filters$.value.length !== 0
+        ? this.filters$
+        : this.getAll$().pipe(tap((v) => this.filters$.next(v)));
+
+    return source$.pipe(switchMap((f) => of(this.getFiltersOfTypes(f, types))));
   }
 
   private getFiltersOfTypes(
