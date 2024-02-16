@@ -1,98 +1,19 @@
-<img src="/assets/companies/cover.webp" class="logo" />
-<h2>Procure to Pay Global Process Owner</h2>
-<h3>We are the Company of IT!</h3>
-<p>
-  A network of passionate professionals working together in over 60 countries to
-  help businesses optimize their talent, transform their workforces, and build
-  the employability of people all over the world. We have a powerful purpose:
-  Making the Future Work for Everyone and we have established the most
-  comprehensive portfolio of HR solutions in the industry, providing essential,
-  dynamic, and efficient solutions that make a difference on how people work in
-  the future - including you!
-</p>
+@if(isLoading || !job) {
 
-<p>
-  In alignment with The Adecco Group Future and Work strategy, we are now
-  expanding our business in Bulgaria with a newly established Shared Service
-  Center!
-</p>
+<ngx-skeleton-loader
+  [theme]="{
+    height: '250px',
+  }"
+  appearance="line"
+  animation="pulse"
+/>
+<ngx-skeleton-loader count="15" appearance="line" animation="pulse" />
 
-<p>
-  You will join forces with talented professionals in the Finance and HR area to
-  shape the future of work and the Adecco Group providing in-house services and
-  improving operational & financial excellence. Here, at the Shared Service
-  Center and the Adecco Group, you&#64;ll have a world of exciting opportunities
-  to explore, develop and grow, to take control of your own work, given all the
-  support and headspace you need to keep loving what you do. We value and
-  respect each other&#64;s opinions in an environment where everyone has a
-  voice. We&#64;ll inspire you to demonstrate a pioneering spirit, connect you
-  with opportunities where you can learn and flourish, and collectively push the
-  limits of what&#64;s possible in the shared services and solutions space!
-</p>
-
-<p>
-  We are currently looking for a well-rounded and self-driven professional for
-  the position of Global Process Owner Procure to Pay.
-</p>
-
-<h2>Mission:</h2>
-<p>
-  Design and implement a standard framework for E2E Finance processes and IT
-  system requirements in line with the global FinOps strategy to transform and
-  optimize processes and improve system governance with the goal to drive
-  standardization and efficiency.
-</p>
-
-<h2>Core Responsibilities:</h2>
-<ul>
-  <li>
-    Define and govern the design of the Procure to Pay and Travel and Expense
-    end to end processes.
-  </li>
-  <li>
-    Continuously monitor productivity and efficiency of the processes using
-    metrics-based key performance indicators analysis.
-  </li>
-  <li>
-    Identify process gaps and issues across all constituencies with focus on
-    automation and standardization.
-  </li>
-</ul>
-
-<h2>Qualifications & Experience:</h2>
-<ul>
-  <li>Bachelor&#64;s degree in Finance, Accounting, Economics or relevant</li>
-  <li>Over 10 years of work experience in Finance, Accounting.</li>
-  <li>
-    Team player, proactive, open minded, excellent listening skills and able to
-    adapt to different cultures.
-  </li>
-</ul>
-
-<h2>What we offer:</h2>
-<ul>
-  <li>23 days paid time off.</li>
-  <li>Multi-sport Card.</li>
-  <li>Additional Health Insurance.</li>
-</ul>
-
-<p>
-  As one of the world&#64;s largest employers we believe in talent, not labels,
-  and focus on the diverse and unique skills our people bring. We seek to foster
-  a culture of belonging and purpose, an environment where everyone can thrive
-  and feel engaged, and where difference is respected and valued. Our commitment
-  to equity, equal opportunity, inclusion, and diversity is part of our broader
-  commitment to respecting fundamental human rights across our value chain. The
-  Adecco Group is proud to be an Equal Opportunity Employer.
-</p>
-
-<p>
-  If you find yourself in the description above and you would like to become
-  part of our international team don't hesitate to apply today. We look forward
-  to receiving your CV in English.
-</p>
-
-<p>
-  Only short-listed candidates will be contacted. All applications will be
-  treated in strict confidentiality.
-</p>
+} @else if (!isLoading && job) {<img
+  src="/assets/companies/cover.webp"
+  class="logo"
+/>
+<h2>{{ job.title }}</h2>
+<h3>{{ job.company.legalName }}</h3>
+{{ job.content }}
+}

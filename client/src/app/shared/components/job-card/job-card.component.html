@@ -6,18 +6,16 @@
         <span class="spacer"></span>
         <mat-icon>bookmark_border</mat-icon>
       </mat-card-subtitle>
-      <a routerLink="/jobs/1" class="link">
-        <mat-card-title>Front-end Engineer</mat-card-title>
+      <a [routerLink]="'/jobs/' + job.id" class="link">
+        <mat-card-title>{{ job.title }}</mat-card-title>
         <mat-card-subtitle>
           <div>
-            <span>София; </span>
-            <span>Ниво Mid-level; </span>
-            <span>Години опит от 2 до 3; </span>
-            <span>Възможност за работа от вкъщи; </span>
-            <span>Постоянна работа; </span>
-            <span>Пълно работно време; </span>
-            <span>Дистанционно интервю; </span>
-            <span>Отпуск 25 дни</span>
+            <span *ngIf="job.location">{{ job.location }}; </span>
+            <span *ngIf="job.level">Ниво {{ job.level }}; </span>
+            <span *ngIf="job.remote">{{ job.remote }}; </span>
+            <span *ngIf="job.type">{{ job.type }}; </span>
+            <span *ngIf="job.hours">{{ job.hours }}; </span>
+            <span *ngIf="job.interview">{{ job.interview }}; </span>
           </div>
           <div class="skills">
             <div class="skill-logo">
@@ -39,15 +37,15 @@
       </mat-card-subtitle>
       <a routerLink="/jobs" class="link company">
         <img [src]="'/assets/companies/1.png'" class="company-logo" />
-        <div>
+        <div *ngIf="job.company">
           <mat-card-subtitle
-            ><span class="company-title"
-              >IT Company EOOD</span
-            ></mat-card-subtitle
+            ><span class="company-title">{{
+              job.company.legalName
+            }}</span></mat-card-subtitle
           >
           <mat-card-subtitle>
             <span>110 служители; </span>
-            <span>В България от 2017 г.</span>
+            <span>V България от 2017 g.</span>
           </mat-card-subtitle>
         </div>
       </a>
@@ -55,7 +53,7 @@
     <mat-card-actions align="end">
       <button mat-button>Статии</button>
       <button mat-button>Обяви</button>
-      <button mat-button>За нас</button>
+      <button mat-button>Za нас</button>
     </mat-card-actions>
   </div>
 </mat-card>

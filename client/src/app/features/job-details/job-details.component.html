@@ -1,5 +1,8 @@
 <div>
-  <app-job-details-description></app-job-details-description>
+  <app-job-details-description
+    [job]="job$ | async"
+    [isLoading]="isLoading$ | async"
+  ></app-job-details-description>
   <div class="submit-wrapper">
     <div class="btns-row">
       <a mat-fab extended [routerLink]="'jobs/1'">

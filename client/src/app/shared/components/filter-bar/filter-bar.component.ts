@@ -35,7 +35,6 @@ export class FilterBarComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    console.log(this.filters);
     this.route.queryParams.pipe(untilDestroyed(this)).subscribe((params) => {
       this.selectedCategories = {};
 

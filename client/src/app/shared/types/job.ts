@@ -4,6 +4,7 @@ import { IJobApplication } from './job-application';
 
 export interface IJob {
   id: string;
+  title: string;
   companyId: string;
   company: ICompany;
   filters: IFilter[];

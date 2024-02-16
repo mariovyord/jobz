@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,6 +16,7 @@ import { IJob } from '../../types/job';
     RouterModule,
     MatButtonModule,
     NgOptimizedImage,
+    CommonModule,
   ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.less',

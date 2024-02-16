@@ -1,7 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
-import { untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, of, shareReplay, switchMap } from 'rxjs';
+import { of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

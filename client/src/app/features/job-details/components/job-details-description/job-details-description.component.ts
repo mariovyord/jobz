@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IJob } from '../../../../shared/types/job';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-job-details-description',
   standalone: true,
-  imports: [],
+  imports: [NgxSkeletonLoaderModule],
   templateUrl: './job-details-description.component.html',
-  styleUrl: './job-details-description.component.less'
+  styleUrl: './job-details-description.component.less',
 })
 export class JobDetailsDescriptionComponent {
-
+  @Input() public job: IJob | null;
+  @Input() public isLoading: boolean | null;
 }
