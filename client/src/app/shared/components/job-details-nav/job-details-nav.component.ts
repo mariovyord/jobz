@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+
+interface ILink {
+  url: string;
+  title: string;
+}
 
 @Component({
   selector: 'app-job-details-nav',
@@ -10,20 +15,35 @@ import { RouterModule } from '@angular/router';
   templateUrl: './job-details-nav.component.html',
   styleUrl: './job-details-nav.component.less',
 })
-export class JobDetailsNavComponent {
-  public activeLink = '/jobs/1';
-  public links = [
-    {
-      url: '/jobs/1',
-      title: 'Обява',
-    },
-    {
-      url: '/jobs/1/company',
-      title: 'За нас',
-    },
-    {
-      url: '/jobs/1/company/jobs',
-      title: 'Всички обяви (3)',
-    },
-  ];
+export class JobDetailsNavComponent implements OnInit {
+  public id: string;
+  public activeLink: string;
+  public links: ILink[] = [];
+
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  public ngOnInit(): void {
+    this.route.paramMap.subscribe((x) => {
+      this.id = x.get('id') || '';
+      this.setLinks(this.id);
+      this.activeLink = this.router.url;
+    });
+  }
+
+  public setLinks(id: string) {
+    this.links = [
+      {
+        url: '/jobs/' + id,
+        title: 'Обява',
+      },
+      {
+        url: '/jobs/' + id + '/company',
+        title: 'За нас',
+      },
+      {
+        url: '/jobs/' + id + '/company/jobs',
+        title: 'Всички обяви (3)',
+      },
+    ];
+  }
 }
