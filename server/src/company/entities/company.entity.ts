@@ -50,5 +50,8 @@ export class Company {
   email: string;
 
   @Column({ type: 'varchar', length: 200 })
+  name: string;
+
+  @Column({ type: 'varchar', length: 200 })
   legalName: string;
 }
