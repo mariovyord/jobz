@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { JobDetailsDescriptionComponent } from './components/job-details-description/job-details-description.component';
-import { JobDetailsNavComponent } from '../../shared/components/job-details-nav/job-details-nav.component';
 import { JobDetailsSidecompanyComponent } from './components/job-details-sidecompany/job-details-sidecompany.component';
 import { JobDetailsSideinfoComponent } from './components/job-details-sideinfo/job-details-sideinfo.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { JobsService } from '../../shared/services/jobs/jobs.service';
 import {
   BehaviorSubject,
   Observable,
@@ -19,15 +17,15 @@ import {
   throttle,
   throttleTime,
 } from 'rxjs';
-import { IJob } from '../../shared/types/job';
 import { CommonModule } from '@angular/common';
+import { IJob } from '../../../../shared/types/job';
+import { JobsService } from '../../../../shared/services/jobs/jobs.service';
 
 @Component({
   selector: 'app-job-details',
   standalone: true,
   imports: [
     JobDetailsDescriptionComponent,
-    JobDetailsNavComponent,
     JobDetailsSidecompanyComponent,
     JobDetailsSideinfoComponent,
     MatButtonModule,

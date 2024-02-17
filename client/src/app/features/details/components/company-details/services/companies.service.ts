@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../../../core/services/api/data.service';
-import { ICompany } from '../../../shared/types/company';
+import { DataService } from '../../../../../core/services/api/data.service';
+import { ICompany } from '../../../../../shared/types/company';
 
 @Injectable()
 export class CompaniesService extends DataService<ICompany> {

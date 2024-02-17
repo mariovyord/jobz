@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 interface ILink {
@@ -9,13 +8,13 @@ interface ILink {
 }
 
 @Component({
-  selector: 'app-job-details-nav',
+  selector: 'app-details',
   standalone: true,
   imports: [MatTabsModule, RouterModule],
-  templateUrl: './job-details-nav.component.html',
-  styleUrl: './job-details-nav.component.less',
+  templateUrl: './details.component.html',
+  styleUrl: './details.component.less',
 })
-export class JobDetailsNavComponent implements OnInit {
+export class DetailsComponent implements OnInit {
   public id: string;
   public activeLink: string;
   public links: ILink[] = [];

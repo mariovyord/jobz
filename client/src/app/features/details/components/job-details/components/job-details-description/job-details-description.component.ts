@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IJob } from '../../../../shared/types/job';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { IJob } from '../../../../../../shared/types/job';
 
 @Component({
   selector: 'app-job-details-description',

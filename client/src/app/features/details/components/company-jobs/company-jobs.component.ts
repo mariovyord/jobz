@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.component';
-import { CompanyHeaderComponent } from '../../shared/components/company-header/company-header.component';
+import { CompanyHeaderComponent } from '../../../../shared/components/company-header/company-header.component';
+import { JobFeedComponent } from '../../../../shared/components/job-feed/job-feed.component';
 
 @Component({
   selector: 'app-company-jobs',
