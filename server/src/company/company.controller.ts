@@ -15,7 +15,7 @@ import { UpdateCompanyDto } from './dto/update-company.dto';
 import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
 import { JwtGuard } from 'src/authz/jwt.guard';
 
-@Controller('companies')
+@Controller('company')
 export class CompanyController {
   constructor(private readonly companyService: CompanyService) {}
 

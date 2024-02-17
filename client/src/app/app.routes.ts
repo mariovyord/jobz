@@ -12,6 +12,7 @@ import { JobDetailsComponent } from './features/details/components/job-details/j
 import { CompanyDetailsComponent } from './features/details/components/company-details/company-details.component';
 import { CompanyJobsComponent } from './features/details/components/company-jobs/company-jobs.component';
 import { DetailsComponent } from './features/details/details.component';
+import { JobResolver } from './features/details/guards/job.resolver';
 
 export const routes: Routes = [
   {
@@ -27,12 +28,13 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'jobs/:id',
+    path: 'jobs/:jobId',
     component: DetailsComponent,
+    resolve: { details: JobResolver },
     children: [
       { path: '', component: JobDetailsComponent },
-      { path: 'company', component: CompanyDetailsComponent },
-      { path: 'company/jobs', component: CompanyJobsComponent },
+      { path: ':companyId', component: CompanyDetailsComponent },
+      { path: ':companyId/jobs', component: CompanyJobsComponent },
     ],
   },
   {

@@ -1,9 +1,9 @@
 <app-company-header></app-company-header>
-<div class="info-wrapper">
+<div class="info-wrapper" *ngIf="company$ | async as company">
   <div class="column">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Company IT EOOD</mat-card-title>
+        <mat-card-title>{{ company.legalName }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>

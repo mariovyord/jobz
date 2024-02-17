@@ -12,7 +12,11 @@ export class CompaniesService extends DataService<ICompany> {
     return this.getAll$();
   }
 
-  public getCompanyById(id: string) {
+  public getCompanyById$(id: string | null) {
+    if (!id) {
+      throw new Error('Company ID is invalid');
+    }
+
     return this.getOne$(id);
   }
 }

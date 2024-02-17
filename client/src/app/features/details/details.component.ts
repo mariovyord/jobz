@@ -15,32 +15,37 @@ interface ILink {
   styleUrl: './details.component.less',
 })
 export class DetailsComponent implements OnInit {
-  public id: string;
+  public jobId: string;
+  public companyId: string;
   public activeLink: string;
   public links: ILink[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   public ngOnInit(): void {
-    this.route.paramMap.subscribe((x) => {
-      this.id = x.get('id') || '';
-      this.setLinks(this.id);
+    this.route.data.subscribe(({ details }) => {
+      this.jobId = details.job.id;
+      this.companyId = details.company.id;
+      this.setLinks(this.jobId, this.companyId);
+    });
+
+    this.route.paramMap.subscribe(() => {
       this.activeLink = this.router.url;
     });
   }
 
-  public setLinks(id: string) {
+  public setLinks(jobId: string, companyId: string) {
     this.links = [
       {
-        url: '/jobs/' + id,
+        url: `/jobs/${jobId}`,
         title: 'Обява',
       },
       {
-        url: '/jobs/' + id + '/company',
+        url: `/jobs/${jobId}/${companyId}`,
         title: 'За нас',
       },
       {
-        url: '/jobs/' + id + '/company/jobs',
+        url: `/jobs/${jobId}/${companyId}/jobs`,
         title: 'Всички обяви (3)',
       },
     ];

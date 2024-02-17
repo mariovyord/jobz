@@ -46,7 +46,7 @@ export class JobDetailsComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    const jobId = this.route.snapshot.paramMap.get('id') || '';
+    const jobId = this.route.snapshot.paramMap.get('jobId');
     this.job$ = this.jobsService
       .getJobById$(jobId)
       .pipe(tap(() => this.isLoading$.next(false)));

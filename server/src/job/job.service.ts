@@ -15,7 +15,7 @@ export class JobService {
   }
 
   async findAll(): Promise<Job[]> {
-    return await this.jobRepository.find();
+    return await this.jobRepository.find({ relations: { company: true } });
   }
 
   async findOne(id: string): Promise<Job> {
