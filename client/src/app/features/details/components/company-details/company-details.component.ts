@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable, mergeMap, of, tap } from 'rxjs';
 import { JobsService } from '../../../../shared/services/jobs/jobs.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-company-details',
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     MatListModule,
     MatIconModule,
     CommonModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [CompaniesService],
   templateUrl: './company-details.component.html',
@@ -37,7 +39,7 @@ export class CompanyDetailsComponent {
 
   public ngOnInit(): void {
     const companyId = this.route.snapshot.paramMap.get('companyId');
-    console.log(this.route.snapshot.paramMap);
+
     this.company$ = this.companiesService
       .getCompanyById$(companyId)
       .pipe(tap(() => this.isLoading$.next(false)));

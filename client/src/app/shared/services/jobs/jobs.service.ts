@@ -17,7 +17,7 @@ export class JobsService extends DataService<IJob> {
     if (!id) {
       throw new Error('Job ID is invalid');
     }
-    debugger;
+
     const cached = this.jobsCache.get(id);
 
     if (cached) {

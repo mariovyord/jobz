@@ -1,112 +1,158 @@
-<app-company-header></app-company-header>
-<div class="info-wrapper" *ngIf="company$ | async as company">
-  <div class="column">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>{{ company.legalName }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          HR solutions, workforce solutions, permanent placement, career
-          transition, talent development, business process outsourcing,
-          consulting, Human Resources, managed services, Reskilling, and
-          Upskilling
-        </p>
-      </mat-card-content>
-    </mat-card>
+<div *ngIf="company$ | async as company">
+  <app-company-header></app-company-header>
+  <div class="info-wrapper">
+    <div class="column">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ company.legalName }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            HR solutions, workforce solutions, permanent placement, career
+            transition, talent development, business process outsourcing,
+            consulting, Human Resources, managed services, Reskilling, and
+            Upskilling
+          </p>
+        </mat-card-content>
+      </mat-card>
 
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>За компанията</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales
-          ac justo vel facilisis. Morbi non velit a neque rutrum faucibus.
-          Vivamus eget erat quis nulla bibendum sollicitudin sed vel est.
-          Maecenas quis ultricies quam. Aenean vulputate mi et urna gravida,
-          quis rutrum quam congue. In placerat mi felis, vel facilisis sapien
-          laoreet nec. Suspendisse in hendrerit est. Cras facilisis, massa quis
-          finibus placerat, magna lorem fringilla nulla, a porta sem augue ut
-          odio. Pellentesque sit amet tincidunt diam. Donec fringilla metus mi,
-          et suscipit mauris cursus vitae. Mauris non orci sapien. Nunc accumsan
-          odio a tincidunt eleifend. Donec ut sapien eros.
-        </p>
-        <p>
-          Integer interdum varius luctus. Ut tincidunt rhoncus orci in auctor.
-          Aliquam sollicitudin, lectus sit amet euismod ornare, tortor sapien
-          aliquam mi, ac auctor lectus magna nec nulla. Aenean elementum porta
-          eros et ullamcorper. Donec nisi dui, dapibus id ligula eu, malesuada
-          semper urna. Maecenas lacinia venenatis enim, eu feugiat tortor
-          interdum nec. Aliquam vel arcu faucibus, commodo ipsum at, fermentum
-          mauris. Curabitur vel scelerisque nibh. Nam id quam eget quam mattis
-          euismod. Vivamus auctor eros ut lectus tincidunt ullamcorper. Vivamus
-          vitae auctor nulla, vitae fringilla arcu. Curabitur nec nisi interdum,
-          convallis diam nec, efficitur odio. Vestibulum ante ipsum primis in
-          faucibus orci luctus et ultrices posuere cubilia curae; Nulla
-          malesuada urna ac dapibus maximus.
-        </p>
-        <p>
-          Suspendisse mollis scelerisque libero et lobortis. Sed posuere
-          tincidunt eros, quis blandit nibh suscipit in. Phasellus nec ante
-          tincidunt, efficitur quam quis, maximus enim. Suspendisse potenti.
-          Etiam sapien arcu, cursus eu maximus et, ornare porta odio. Vestibulum
-          hendrerit lacus eu arcu ullamcorper, ac ultricies enim lacinia. Morbi
-          a gravida tellus. Sed sollicitudin scelerisque venenatis. Curabitur
-          lacinia fringilla ante. Vivamus rhoncus, tellus sit amet varius
-          tempus, sapien lacus suscipit dui, vel euismod magna diam quis eros.
-        </p>
-      </mat-card-content>
-    </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>За компанията</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales
+            ac justo vel facilisis. Morbi non velit a neque rutrum faucibus.
+            Vivamus eget erat quis nulla bibendum sollicitudin sed vel est.
+            Maecenas quis ultricies quam. Aenean vulputate mi et urna gravida,
+            quis rutrum quam congue. In placerat mi felis, vel facilisis sapien
+            laoreet nec. Suspendisse in hendrerit est. Cras facilisis, massa
+            quis finibus placerat, magna lorem fringilla nulla, a porta sem
+            augue ut odio. Pellentesque sit amet tincidunt diam. Donec fringilla
+            metus mi, et suscipit mauris cursus vitae. Mauris non orci sapien.
+            Nunc accumsan odio a tincidunt eleifend. Donec ut sapien eros.
+          </p>
+          <p>
+            Integer interdum varius luctus. Ut tincidunt rhoncus orci in auctor.
+            Aliquam sollicitudin, lectus sit amet euismod ornare, tortor sapien
+            aliquam mi, ac auctor lectus magna nec nulla. Aenean elementum porta
+            eros et ullamcorper. Donec nisi dui, dapibus id ligula eu, malesuada
+            semper urna. Maecenas lacinia venenatis enim, eu feugiat tortor
+            interdum nec. Aliquam vel arcu faucibus, commodo ipsum at, fermentum
+            mauris. Curabitur vel scelerisque nibh. Nam id quam eget quam mattis
+            euismod. Vivamus auctor eros ut lectus tincidunt ullamcorper.
+            Vivamus vitae auctor nulla, vitae fringilla arcu. Curabitur nec nisi
+            interdum, convallis diam nec, efficitur odio. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            Nulla malesuada urna ac dapibus maximus.
+          </p>
+          <p>
+            Suspendisse mollis scelerisque libero et lobortis. Sed posuere
+            tincidunt eros, quis blandit nibh suscipit in. Phasellus nec ante
+            tincidunt, efficitur quam quis, maximus enim. Suspendisse potenti.
+            Etiam sapien arcu, cursus eu maximus et, ornare porta odio.
+            Vestibulum hendrerit lacus eu arcu ullamcorper, ac ultricies enim
+            lacinia. Morbi a gravida tellus. Sed sollicitudin scelerisque
+            venenatis. Curabitur lacinia fringilla ante. Vivamus rhoncus, tellus
+            sit amet varius tempus, sapien lacus suscipit dui, vel euismod magna
+            diam quis eros.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="column">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>В България</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListItemIcon>calendar_today</mat-icon>
+              <div matListItemTitle>От 2021</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>location_on</mat-icon>
+              <div matListItemTitle>София</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Глобално</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListItemIcon>business</mat-icon>
+              <div matListItemTitle>Централа в Zurich, Switzerland</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>calendar_today</mat-icon>
+              <div matListItemTitle>Основана 1997</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>people_alt</mat-icon>
+              <div matListItemTitle>31000 служители</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Контакти</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Company IT EOOD</p>
+          <p>ЕИК: 1231231</p>
+          <p>Адрес: София, Бизнес център 3, ул. "Река" 3, ет. 5</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-  <div class="column">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>В България</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item>
-            <mat-icon matListItemIcon>calendar_today</mat-icon>
-            <div matListItemTitle>От 2021</div>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon matListItemIcon>location_on</mat-icon>
-            <div matListItemTitle>София</div>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Глобално</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item>
-            <mat-icon matListItemIcon>business</mat-icon>
-            <div matListItemTitle>Централа в Zurich, Switzerland</div>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon matListItemIcon>calendar_today</mat-icon>
-            <div matListItemTitle>Основана 1997</div>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon matListItemIcon>people_alt</mat-icon>
-            <div matListItemTitle>31000 служители</div>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Контакти</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Company IT EOOD</p>
-        <p>ЕИК: 1231231</p>
-        <p>Адрес: София, Бизнес център 3, ул. "Река" 3, ет. 5</p>
-      </mat-card-content>
-    </mat-card>
+</div>
+<div *ngIf="isLoading$ | async">
+  <ngx-skeleton-loader
+    [theme]="{
+    height: '300px',
+  }"
+    appearance="line"
+    animation="pulse"
+  />
+  <div class="info-wrapper">
+    <div class="column">
+      <ngx-skeleton-loader
+        [theme]="{
+        height: '250px',
+      }"
+        appearance="line"
+        animation="pulse"
+      />
+      <ngx-skeleton-loader
+        [theme]="{
+      height: '250px',
+    }"
+        appearance="line"
+        animation="pulse"
+      />
+    </div>
+    <div class="column">
+      <ngx-skeleton-loader
+        [theme]="{
+        height: '250px',
+      }"
+        appearance="line"
+        animation="pulse"
+      />
+      <ngx-skeleton-loader
+        [theme]="{
+      height: '250px',
+    }"
+        appearance="line"
+        animation="pulse"
+      />
+    </div>
   </div>
 </div>
