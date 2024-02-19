@@ -29,10 +29,7 @@ export class JobController {
   findAll(@Query('where') where?: string | string[]) {
     const query: IQuery = {};
 
-    if (where) {
-      query.where = where;
-      console.log('WHERE', where);
-    }
+    if (where) query.where = where;
 
     return this.jobService.findAll(query);
   }

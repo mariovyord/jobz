@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { Job } from './entities/job.entity';
-import { IQuery, buildQuery } from 'src/shared/utils/query-builder';
+import { CustomQueryBuilder, IQuery } from 'src/shared/utils/query-builder';
 
 @Injectable()
 export class JobService {
@@ -16,10 +16,11 @@ export class JobService {
   }
 
   async findAll(filters: IQuery): Promise<Job[]> {
-    const query = buildQuery(this.jobRepository, filters);
-    query.innerJoinAndSelect('entity.company', 'company');
-
-    const jobs = await query.getMany();
+    const builder = new CustomQueryBuilder<Job>(this.jobRepository);
+    const jobs = await builder
+      .where(filters.where)
+      .innerJoinAndSelect('company')
+      .exec();
 
     if (!jobs) {
       return [];
