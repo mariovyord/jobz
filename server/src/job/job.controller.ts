@@ -7,11 +7,13 @@ import {
   Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { JwtGuard } from 'src/authz/jwt.guard';
+import { IQuery } from 'src/shared/utils/query-builder';
 
 @Controller('jobs')
 export class JobController {
@@ -24,8 +26,15 @@ export class JobController {
   }
 
   @Get()
-  findAll() {
-    return this.jobService.findAll();
+  findAll(@Query('where') where?: string | string[]) {
+    const query: IQuery = {};
+
+    if (where) {
+      query.where = where;
+      console.log('WHERE', where);
+    }
+
+    return this.jobService.findAll(query);
   }
 
   @Get(':id')

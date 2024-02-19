@@ -3,13 +3,13 @@
     <button mat-icon-button (click)="close()">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <span>{{ data.filters.type | translate }}</span>
+    <span>{{ data.type | translate }}</span>
   </mat-toolbar>
 </header>
 <div class="content-wrapper">
   <div class="content">
     <mat-chip-set role="list" aria-label="select a shirt size">
-      @for(option of data.filters.options; track option.id) {
+      @for(option of data.options; track option.id) {
       <mat-chip-option
         [selected]="!!selectedFilters[option.name]"
         (selectionChange)="chipSelectionChange($event, option)"

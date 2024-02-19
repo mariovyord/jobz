@@ -16,8 +16,19 @@ export abstract class DataService<T> {
     return this.http.get<T>(url);
   }
 
-  protected getAll$(): Observable<T[]> {
-    const url = `${environment.baseUrl}/${this.getPath()}`;
+  protected getAll$(where?: Record<string, string>): Observable<T[]> {
+    let url = `${environment.baseUrl}/${this.getPath()}`;
+
+    if (where && Object.keys(where).length > 0) {
+      const q = [];
+
+      for (const key in where) {
+        q.push(`where=${key}=${where[key]}`);
+      }
+
+      url = url + '?' + q.join('&');
+    }
+
     return this.http.get<T[]>(url);
   }
 

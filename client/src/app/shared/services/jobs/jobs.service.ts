@@ -46,7 +46,7 @@ export class JobsService extends DataService<IJob> {
       throw new Error('Company ID is invalid');
     }
 
-    return this.getAll$().pipe(
+    return this.getAll$({ companyId }).pipe(
       tap((j) => {
         j.forEach((v: IJob) => {
           this.jobsCache.set(v.id, v);
