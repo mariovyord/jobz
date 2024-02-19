@@ -19,7 +19,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     CommonModule,
     NgxSkeletonLoaderModule,
   ],
-  providers: [CompaniesService, JobsService],
   templateUrl: './company-jobs.component.html',
   styleUrl: './company-jobs.component.less',
 })

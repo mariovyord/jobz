@@ -13,20 +13,20 @@ export class JobsService extends DataService<IJob> {
     return 'jobs';
   }
 
-  public getJobById$(companyId: string | null) {
-    if (!companyId) {
+  public getJobById$(jobId: string | null) {
+    if (!jobId) {
       throw new Error('Job ID is invalid');
     }
 
-    const cached = this.jobsCache.get(companyId);
+    const cached = this.jobsCache.get(jobId);
 
     if (cached) {
       return of(cached);
     }
 
-    return this.getOne$(companyId).pipe(
+    return this.getOne$(jobId).pipe(
       tap((j) => {
-        this.jobsCache.set(companyId, j);
+        this.jobsCache.set(jobId, j);
       })
     );
   }

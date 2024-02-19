@@ -24,7 +24,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     CommonModule,
     NgxSkeletonLoaderModule,
   ],
-  providers: [CompaniesService],
   templateUrl: './company-details.component.html',
   styleUrl: './company-details.component.less',
 })
