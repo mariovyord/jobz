@@ -1,3 +1,6 @@
-<app-company-header></app-company-header>
+<app-company-header [company]="company$ | async"></app-company-header>
 <h5 class="mat-headline-5">Обяви</h5>
-<app-job-feed></app-job-feed>
+<app-job-feed
+  [jobs]="jobs$ | async"
+  [isLoading]="isLoadingJobs || isLoadingCompany"
+></app-job-feed>

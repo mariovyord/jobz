@@ -8,7 +8,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
 import { JobsService } from '../../shared/services/jobs/jobs.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IJob } from '../../shared/types/job';
 import { IFilterByType } from '../../shared/types/filter';
 
@@ -30,6 +30,7 @@ export class JobsComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;
   public jobs$: Observable<IJob[]>;
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
+  public isLoading = true;
 
   constructor(
     private responsiveService: ResponsiveService,
@@ -38,7 +39,9 @@ export class JobsComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.jobs$ = this.jobsService.getAllJobs$();
+    this.jobs$ = this.jobsService
+      .getAllJobs$()
+      .pipe(tap(() => (this.isLoading = false)));
     this.filters$ = this.filtersService.getAllFiltersByType$();
   }
 }

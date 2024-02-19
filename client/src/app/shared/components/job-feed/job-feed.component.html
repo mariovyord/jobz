@@ -1,3 +1,26 @@
-@for (job of jobs; track job.id) {
+@if (isLoading) {
+<ngx-skeleton-loader
+  [theme]="{ height: '150px', }"
+  appearance="line"
+  animation="pulse"
+/>
+<ngx-skeleton-loader
+  [theme]="{ height: '150px', }"
+  appearance="line"
+  animation="pulse"
+/>
+<ngx-skeleton-loader
+  [theme]="{ height: '150px', }"
+  appearance="line"
+  animation="pulse"
+/>
+<ngx-skeleton-loader
+  [theme]="{ height: '150px', }"
+  appearance="line"
+  animation="pulse"
+/>
+} @for (job of jobs; track job.id) {
 <app-job-card [job]="job"></app-job-card>
+} @empty {
+<div>There are no jobs.</div>
 }

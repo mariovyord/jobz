@@ -13,25 +13,39 @@ export class JobsService extends DataService<IJob> {
     return 'jobs';
   }
 
-  public getJobById$(id: string | null) {
-    if (!id) {
+  public getJobById$(companyId: string | null) {
+    if (!companyId) {
       throw new Error('Job ID is invalid');
     }
 
-    const cached = this.jobsCache.get(id);
+    const cached = this.jobsCache.get(companyId);
 
     if (cached) {
       return of(cached);
     }
 
-    return this.getOne$(id).pipe(
+    return this.getOne$(companyId).pipe(
       tap((j) => {
-        this.jobsCache.set(id, j);
+        this.jobsCache.set(companyId, j);
       })
     );
   }
 
   public getAllJobs$() {
+    return this.getAll$().pipe(
+      tap((j) => {
+        j.forEach((v: IJob) => {
+          this.jobsCache.set(v.id, v);
+        });
+      })
+    );
+  }
+
+  public getAllJobsByCompanyId$(companyId: string | null) {
+    if (!companyId) {
+      throw new Error('Company ID is invalid');
+    }
+
     return this.getAll$().pipe(
       tap((j) => {
         j.forEach((v: IJob) => {
