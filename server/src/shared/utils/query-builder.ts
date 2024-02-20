@@ -2,7 +2,7 @@ import { Repository, SelectQueryBuilder } from 'typeorm';
 
 export interface IQueryParams {
   whereIn?: Record<string, string[]>;
-  whereEq?: Record<string, string[]>;
+  whereEq?: Record<string, string>;
   orderBy?: string;
 }
 
@@ -36,7 +36,7 @@ export class CustomQueryBuilder<T> {
     Object.entries(where).forEach(([key, values]) => {
       // Use equality for single matching pattern
       this.queryBuilder.andWhere(`entity.${key} = :value`, {
-        value: values[0],
+        value: values,
       });
     });
 

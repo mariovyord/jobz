@@ -63,6 +63,10 @@ export class JobService {
     await this.jobRepository.remove(job);
   }
 
+  /**
+   * Greenlights query params and prepares them for quering the database
+   * TODO: Move to pipe
+   */
   private parseQueryParams(queryParams?: Record<string, string>): IQueryParams {
     if (!queryParams || Object.keys(queryParams).length === 0) {
       return {};
@@ -83,7 +87,7 @@ export class JobService {
             result.whereIn[camelToSnakeCase(key)] = values;
           } else {
             if (!result['whereEq']) result['whereEq'] = {};
-            result.whereEq[camelToSnakeCase(key)] = values;
+            result.whereEq[camelToSnakeCase(key)] = values[0];
           }
 
           break;
