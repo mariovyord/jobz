@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 interface ILink {
   url: string;
   title: string;
 }
 
+@UntilDestroy()
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -23,13 +25,13 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   public ngOnInit(): void {
-    this.route.data.subscribe(({ details }) => {
+    this.route.data.pipe(untilDestroyed(this)).subscribe(({ details }) => {
       this.jobId = details.job.id;
       this.companyId = details.company.id;
       this.setLinks(this.jobId, this.companyId);
     });
 
-    this.route.paramMap.subscribe(() => {
+    this.route.paramMap.pipe(untilDestroyed(this)).subscribe(() => {
       this.activeLink = this.router.url;
     });
   }

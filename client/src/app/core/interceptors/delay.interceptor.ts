@@ -26,7 +26,7 @@ export class DelayInterceptor implements HttpInterceptor {
     }
 
     // If it's not production (i.e., development), apply a random delay
-    const delayDuration = Math.random() * 1000;
+    const delayDuration = Math.random() * 5000;
     console.log(
       '[HTTP delay] HTTP request delayed by',
       (delayDuration / 1000).toFixed(2),

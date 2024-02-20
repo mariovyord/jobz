@@ -11,6 +11,8 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { interceptorsProvider } from './core/interceptors/interceptors.provider';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideQuillConfig } from 'ngx-quill';
+import { QuillConfiguration } from './config/quill.config';
 
 registerLocaleData(en);
 
@@ -48,5 +50,10 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideAnimations(),
+    provideQuillConfig({
+      modules: {
+        toolbar: QuillConfiguration.toolbar,
+      },
+    }),
   ],
 };
