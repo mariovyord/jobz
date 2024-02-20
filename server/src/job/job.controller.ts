@@ -13,7 +13,6 @@ import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { JwtGuard } from 'src/authz/jwt.guard';
-import { IQuery } from 'src/shared/utils/query-builder';
 
 @Controller('jobs')
 export class JobController {
@@ -26,12 +25,8 @@ export class JobController {
   }
 
   @Get()
-  findAll(@Query('where') where?: string | string[]) {
-    const query: IQuery = {};
-
-    if (where) query.where = where;
-
-    return this.jobService.findAll(query);
+  findAll(@Query() queryParams?: Record<string, string>) {
+    return this.jobService.findAll(queryParams);
   }
 
   @Get(':id')

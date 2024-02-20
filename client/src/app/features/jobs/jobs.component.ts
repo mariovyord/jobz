@@ -8,9 +8,18 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
 import { JobsService } from '../../shared/services/jobs/jobs.service';
-import { Observable, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  finalize,
+  mergeMap,
+  of,
+  tap,
+} from 'rxjs';
 import { IJob } from '../../shared/types/job';
 import { IFilterByType } from '../../shared/types/filter';
+import { ActivatedRoute } from '@angular/router';
 
 @UntilDestroy()
 @Component({
@@ -28,20 +37,40 @@ import { IFilterByType } from '../../shared/types/filter';
 })
 export class JobsComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;
-  public jobs$: Observable<IJob[]>;
+  public jobs$ = new BehaviorSubject<IJob[]>([]);
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
   public isLoading = true;
 
   constructor(
     private responsiveService: ResponsiveService,
     private filtersService: FiltersService,
-    private jobsService: JobsService
+    private jobsService: JobsService,
+    private route: ActivatedRoute
   ) {}
 
   public ngOnInit(): void {
-    this.jobs$ = this.jobsService
-      .getAllJobs$()
-      .pipe(tap(() => (this.isLoading = false)));
     this.filters$ = this.filtersService.getAllFiltersByType$();
+
+    this.route.queryParams
+      .pipe(
+        untilDestroyed(this),
+        mergeMap((params) => {
+          return this.jobsService.getAllJobs$(params).pipe(
+            finalize(() => {
+              if (this.isLoading) {
+                this.isLoading = false;
+              }
+            })
+          );
+        })
+      )
+      .subscribe({
+        next: (jobs) => {
+          this.jobs$.next(jobs);
+        },
+        error: (err) => {
+          console.error('Error fetching jobs', err);
+        },
+      });
   }
 }

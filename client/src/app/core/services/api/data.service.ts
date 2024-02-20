@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,14 +17,16 @@ export abstract class DataService<T> {
     return this.http.get<T>(url);
   }
 
-  protected getAll$(where?: Record<string, string>): Observable<T[]> {
+  protected getAll$(queryParams?: Params): Observable<T[]> {
     let url = `${environment.baseUrl}/${this.getPath()}`;
 
-    if (where && Object.keys(where).length > 0) {
+    if (!queryParams) return this.http.get<T[]>(url);
+
+    if (queryParams && Object.keys(queryParams).length > 0) {
       const q = [];
 
-      for (const key in where) {
-        q.push(`where=${key}=${where[key]}`);
+      for (const key in queryParams) {
+        q.push(`${key}=${queryParams[key]}`);
       }
 
       url = url + '?' + q.join('&');

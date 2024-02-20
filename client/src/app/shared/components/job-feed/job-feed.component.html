@@ -21,6 +21,6 @@
 />
 } @for (job of jobs; track job.id) {
 <app-job-card [job]="job"></app-job-card>
-} @empty {
+} @empty { @if (!isLoading) {
 <div>There are no jobs.</div>
-}
+} }
