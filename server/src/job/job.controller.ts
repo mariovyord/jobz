@@ -13,6 +13,7 @@ import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { JwtGuard } from 'src/authz/jwt.guard';
+import { JobsQueryParamsDto } from './dto/jobs-query-params.dto';
 
 @Controller('jobs')
 export class JobController {
@@ -25,7 +26,7 @@ export class JobController {
   }
 
   @Get()
-  findAll(@Query() queryParams?: Record<string, string>) {
+  findAll(@Query() queryParams: JobsQueryParamsDto) {
     return this.jobService.findAll(queryParams);
   }
 

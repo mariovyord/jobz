@@ -33,7 +33,6 @@ export class JobsService extends DataService<IJob> {
   }
 
   public getAllJobs$(params: Params) {
-    console.log(params);
     return this.getAll$(params).pipe(
       tap((j) => {
         j.forEach((v: IJob) => {

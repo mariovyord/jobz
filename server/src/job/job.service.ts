@@ -4,11 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { Job } from './entities/job.entity';
-import {
-  CustomQueryBuilder,
-  IQueryParams,
-} from 'src/shared/utils/query-builder';
-import { camelToSnakeCase } from 'src/shared/utils/camel-to-snake-case';
+import { JobsQueryParamsDto } from './dto/jobs-query-params.dto';
 
 @Injectable()
 export class JobService {
@@ -19,15 +15,31 @@ export class JobService {
     return await this.jobRepository.save(newJob);
   }
 
-  async findAll(queryParams: Record<string, string>): Promise<Job[]> {
-    const parsedQueryParams = this.parseQueryParams(queryParams);
-    const builder = new CustomQueryBuilder<Job>(this.jobRepository);
-    const jobs = await builder
-      .whereIn(parsedQueryParams.whereIn)
-      .whereEq(parsedQueryParams.whereEq)
-      .innerJoinAndSelect('company')
-      .orderBy('updated_at', 'DESC')
-      .exec();
+  async findAll(queryParams: JobsQueryParamsDto): Promise<Job[]> {
+    const builder = this.jobRepository.createQueryBuilder('job');
+
+    if (queryParams.companyId) {
+      builder.andWhere('job.company_id = :companyId', {
+        companyId: queryParams.companyId,
+      });
+    }
+
+    if (queryParams.level) {
+      builder.andWhere(`job.level IN (:...values)`, {
+        values: queryParams.level,
+      });
+    }
+
+    // Pagination
+    const defaultLimit = 20;
+    builder.limit(queryParams.limit || defaultLimit);
+    builder.offset(queryParams.offset || 0);
+
+    // Mandatory operations
+    builder.innerJoinAndSelect(`job.company`, 'company');
+    builder.orderBy('job.updated_at', 'DESC');
+
+    const jobs = await builder.getMany();
 
     if (!jobs) {
       return [];
@@ -61,39 +73,5 @@ export class JobService {
   async remove(id: string): Promise<void> {
     const job = await this.findOne(id);
     await this.jobRepository.remove(job);
-  }
-
-  /**
-   * Greenlights query params and prepares them for quering the database
-   * TODO: Move to pipe
-   */
-  private parseQueryParams(queryParams?: Record<string, string>): IQueryParams {
-    if (!queryParams || Object.keys(queryParams).length === 0) {
-      return {};
-    }
-
-    const result: IQueryParams = {};
-
-    for (const [key, value] of Object.entries(queryParams)) {
-      switch (key) {
-        case 'orderBy':
-          result.orderBy = value;
-          break;
-        default:
-          const values = value.split(' ');
-
-          if (values.length > 1) {
-            if (!result['whereIn']) result['whereIn'] = {};
-            result.whereIn[camelToSnakeCase(key)] = values;
-          } else {
-            if (!result['whereEq']) result['whereEq'] = {};
-            result.whereEq[camelToSnakeCase(key)] = values[0];
-          }
-
-          break;
-      }
-    }
-
-    return result;
   }
 }
