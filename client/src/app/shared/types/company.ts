@@ -3,6 +3,7 @@ import { IJob } from './job';
 
 export interface ICompany {
   id: string;
+  name: string;
   jobs: IJob[];
   articles: IArticle[];
   userId: string;
