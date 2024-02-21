@@ -36,6 +36,21 @@ export class JobsQueryParamsDto {
   interview?: string[];
 
   @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  experience?: string[];
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  techStack?: string[];
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  language?: string[];
+
+  @IsOptional()
   @IsString()
   keyWord?: string;
 

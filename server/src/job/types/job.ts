@@ -1,14 +1,14 @@
-import { ICompany } from './company';
-import { IFilter } from './filter';
-import { IJobApplication } from './job-application';
+import { Company } from 'src/company/entities/company.entity';
+import { Filter } from 'src/filter/entities/filter.entity';
+import { JobApplication } from 'src/job-application/entities/job-application.entity';
 
 export interface IJob {
   id: string;
   title: string;
   companyId: string;
-  company: ICompany;
-  filters: IFilter[];
-  jobApplications: IJobApplication[];
+  company: Company;
+  filters: Filter[];
+  jobApplications: JobApplication[];
   createdAt: Date;
   updatedAt: Date;
   description: string;

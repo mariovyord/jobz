@@ -1,5 +1,12 @@
 import { IsNotEmpty, IsUrl, IsString, IsArray, IsUUID } from 'class-validator';
 import { Job } from '../entities/job.entity';
+import {
+  TEmploymentType,
+  TField,
+  TInterview,
+  TLevel,
+  TRemote,
+} from '../types/job';
 
 export class CreateJobDto implements Partial<Job> {
   @IsNotEmpty()
@@ -20,7 +27,7 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
-  field: string;
+  field: TField;
 
   @IsNotEmpty()
   @IsString()
@@ -28,19 +35,19 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
-  level: string;
+  level: TLevel;
 
   @IsNotEmpty()
   @IsString()
-  remote: string;
+  remote: TRemote;
 
   @IsNotEmpty()
   @IsString()
-  employmentType: string;
+  employmentType: TEmploymentType;
 
   @IsNotEmpty()
   @IsString()
-  interview: string;
+  interview: TInterview;
 
   @IsNotEmpty()
   @IsUrl()

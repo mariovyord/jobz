@@ -60,6 +60,24 @@ export class JobService {
       });
     }
 
+    if (queryParams.language) {
+      builder.andWhere(`job.language @> ARRAY[:...values]']`, {
+        values: queryParams.language,
+      });
+    }
+
+    if (queryParams.techStack) {
+      builder.andWhere(`job.tech_stack @> ARRAY[:...values]']`, {
+        values: queryParams.techStack,
+      });
+    }
+
+    if (queryParams.experience) {
+      builder.andWhere(`job.experience = :value`, {
+        value: queryParams.experience,
+      });
+    }
+
     if (queryParams.keyWord) {
       builder.andWhere(`job.description LIKE :value`, {
         keyWord: `%${queryParams.keyWord}%`,
@@ -71,9 +89,10 @@ export class JobService {
         `updated_at >=
       CASE
           WHEN :value = 'today' THEN CURRENT_DATE
-          WHEN :value = 'since-yesterday' THEN CURRENT_DATE - INTERVAL '1 day'
-          WHEN :value = 'since-7-days' THEN CURRENT_DATE - INTERVAL '7 days'
-          WHEN :value = 'since-14-days' THEN CURRENT_DATE - INTERVAL '14 days'
+          WHEN :value = 'yesterday' THEN CURRENT_DATE - INTERVAL '1 day'
+          WHEN :value = 'last-three-days' THEN CURRENT_DATE - INTERVAL '3 days'
+          WHEN :value = 'last-seven-days' THEN CURRENT_DATE - INTERVAL '7 days'
+          WHEN :value = 'last-fourteen-days' THEN CURRENT_DATE - INTERVAL '14 days'
           ELSE NULL
       END`,
         {

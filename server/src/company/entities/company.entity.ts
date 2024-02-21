@@ -49,7 +49,7 @@ export class Company {
   @Column({ type: 'varchar', length: 200 })
   email: string;
 
-  @Column({ type: 'varchar', length: 200 })
+  @Column({ type: 'varchar', length: 200, nullable: true })
   name: string;
 
   @Column({ type: 'varchar', length: 200 })
