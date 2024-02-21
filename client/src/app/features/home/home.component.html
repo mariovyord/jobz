@@ -1,4 +1,7 @@
-<app-jobs-count-strip></app-jobs-count-strip>
+<app-jobs-count-strip
+  [allJobsCount]="jobsCount$ | async"
+  [allJobsCountToday]="jobsCountToday$ | async"
+></app-jobs-count-strip>
 <app-filter-bar [filters]="(filters$ | async) || []"></app-filter-bar>
 <div class="content">
   <app-top-companies title="Топ компании"></app-top-companies>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -8,4 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './jobs-count-strip.component.html',
   styleUrl: './jobs-count-strip.component.less',
 })
-export class JobsCountStripComponent {}
+export class JobsCountStripComponent {
+  @Input({ required: true }) public allJobsCount: number | null;
+  @Input({ required: true }) public allJobsCountToday: number | null;
+}

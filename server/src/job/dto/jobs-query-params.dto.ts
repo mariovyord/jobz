@@ -74,4 +74,9 @@ export class JobsQueryParamsDto {
   @IsInt()
   @Min(0)
   offset?: number;
+
+  @IsOptional()
+  @Transform(({ value }) => parseInt(value))
+  @IsInt()
+  count?: 1;
 }

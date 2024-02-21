@@ -1,5 +1,7 @@
 <div class="total">
   <mat-icon matListItemIcon>search</mat-icon> Търсене в
-  <span class="count">2 459</span> обяви
+  <span class="count">{{ allJobsCount || 0 }}</span> обяви
 </div>
-<div>Днес: <span class="count">113</span></div>
+<div>
+  Днес: <span class="count">{{ allJobsCountToday || 0 }}</span>
+</div>

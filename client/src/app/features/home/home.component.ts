@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SecondaryNavComponent } from '../../core/components/secondary-nav/secondary-nav.component';
 import { JobsCountStripComponent } from './components/jobs-count-strip/jobs-count-strip.component';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
@@ -6,6 +6,7 @@ import { TopCompaniesComponent } from './components/top-companies/top-companies.
 import { JobNewsComponent } from './components/job-news/job-news.component';
 import { FiltersService } from '../../shared/services/filters.service';
 import { AsyncPipe } from '@angular/common';
+import { JobsService } from '../../shared/services/jobs/jobs.service';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,11 @@ import { AsyncPipe } from '@angular/common';
 })
 export class HomeComponent {
   public filters$ = this.filtersService.getAllFiltersByType$();
+  public jobsCount$ = this.jobsService.getAllJobsCount$();
+  public jobsCountToday$ = this.jobsService.getAllJobsCountToday$();
 
-  constructor(private filtersService: FiltersService) {}
+  constructor(
+    private filtersService: FiltersService,
+    private jobsService: JobsService
+  ) {}
 }

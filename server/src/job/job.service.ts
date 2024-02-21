@@ -15,7 +15,7 @@ export class JobService {
     return await this.jobRepository.save(newJob);
   }
 
-  async findAll(queryParams: JobsQueryParamsDto): Promise<Job[]> {
+  async findAll(queryParams: JobsQueryParamsDto): Promise<Job[] | number> {
     const builder = this.jobRepository.createQueryBuilder('job');
 
     if (queryParams.companyId) {
@@ -109,6 +109,10 @@ export class JobService {
     // Mandatory operations
     builder.innerJoinAndSelect(`job.company`, 'company');
     builder.orderBy('job.updated_at', 'DESC');
+
+    if (queryParams.count) {
+      return await builder.getCount();
+    }
 
     const jobs = await builder.getMany();
 

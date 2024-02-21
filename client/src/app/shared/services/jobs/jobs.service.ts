@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../../../core/services/api/data.service';
 import { IJob } from '../../types/job';
-import { of, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { Params } from '@angular/router';
 
 @Injectable({
@@ -32,7 +32,7 @@ export class JobsService extends DataService<IJob> {
     );
   }
 
-  public getAllJobs$(params: Params) {
+  public getAllJobs$(params: Params): Observable<IJob[]> {
     return this.getAll$(params).pipe(
       tap((j) => {
         j.forEach((v: IJob) => {
@@ -53,5 +53,13 @@ export class JobsService extends DataService<IJob> {
         });
       })
     );
+  }
+
+  public getAllJobsCount$(): Observable<number> {
+    return this.getCount$();
+  }
+
+  public getAllJobsCountToday$(): Observable<number> {
+    return this.getCount$({ published: 'today' });
   }
 }

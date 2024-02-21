@@ -49,4 +49,20 @@ export abstract class DataService<T> {
     const url = `${environment.baseUrl}/${this.getPath()}/${id}`;
     return this.http.delete<void>(url);
   }
+
+  protected getCount$(queryParams: Params = []): Observable<number> {
+    let url = `${environment.baseUrl}/${this.getPath()}`;
+
+    const q = [];
+
+    for (const key in queryParams) {
+      q.push(`${key}=${queryParams[key]}`);
+    }
+
+    q.push('count=1');
+
+    url = url + '?' + q.join('&');
+
+    return this.http.get<number>(url);
+  }
 }
