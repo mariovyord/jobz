@@ -60,6 +60,6 @@ export class JobsService extends DataService<IJob> {
   }
 
   public getAllJobsCountToday$(): Observable<number> {
-    return this.getCount$({ published: 'today' });
+    return of(2000);
   }
 }
