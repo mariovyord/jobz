@@ -1,4 +1,9 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  NgZone,
+  OnInit,
+} from '@angular/core';
 import { SecondaryNavComponent } from '../../core/components/secondary-nav/secondary-nav.component';
 import { JobsCountStripComponent } from './components/jobs-count-strip/jobs-count-strip.component';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
@@ -24,6 +29,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   public filters$ = this.filtersService.getAllFiltersByType$();

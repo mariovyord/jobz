@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import {
@@ -23,6 +28,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   templateUrl: './filter-bar.component.html',
   styleUrl: './filter-bar.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterBarComponent implements OnInit {
   public selectedCategories: { [key: string]: IFilterByType } = {};

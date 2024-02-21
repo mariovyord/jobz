@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.component';
 
 @Component({
@@ -7,5 +7,6 @@ import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.comp
   imports: [JobFeedComponent],
   templateUrl: './notebook.component.html',
   styleUrl: './notebook.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotebookComponent {}

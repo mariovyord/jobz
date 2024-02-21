@@ -1,6 +1,11 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +25,7 @@ import { IJob } from '../../types/job';
   ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JobCardComponent {
   @Input({ required: true }) job: IJob;

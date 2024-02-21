@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-top-companies',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
   imports: [NgOptimizedImage],
   templateUrl: './top-companies.component.html',
   styleUrl: './top-companies.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopCompaniesComponent {
   public rows = new Array(4);

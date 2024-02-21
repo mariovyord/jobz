@@ -1,4 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
 import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.component';
 import { TopCompaniesComponent } from '../home/components/top-companies/top-companies.component';
@@ -34,6 +39,7 @@ import { ActivatedRoute } from '@angular/router';
   ],
   templateUrl: './jobs.component.html',
   styleUrl: './jobs.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JobsComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;

@@ -1,4 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import {
   MAT_BOTTOM_SHEET_DATA,
   MatBottomSheetRef,
@@ -31,6 +36,7 @@ import { IFilter, IFilterByType } from '../../types/filter';
   ],
   templateUrl: './filter-botton-sheet.component.html',
   styleUrl: './filter-botton-sheet.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterBottonSheetComponent implements OnInit {
   public selectedFilters: { [key: string]: IFilter } = {};
