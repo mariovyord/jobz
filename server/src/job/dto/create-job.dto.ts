@@ -1,6 +1,7 @@
 import { IsNotEmpty, IsUrl, IsString, IsArray, IsUUID } from 'class-validator';
+import { Job } from '../entities/job.entity';
 
-export class CreateJobDto {
+export class CreateJobDto implements Partial<Job> {
   @IsNotEmpty()
   @IsUUID('4')
   companyId: string;
@@ -15,11 +16,11 @@ export class CreateJobDto {
 
   @IsNotEmpty()
   @IsString()
-  content: string;
+  description: string;
 
   @IsNotEmpty()
   @IsString()
-  domain: string;
+  field: string;
 
   @IsNotEmpty()
   @IsString()
@@ -35,11 +36,7 @@ export class CreateJobDto {
 
   @IsNotEmpty()
   @IsString()
-  type: string;
-
-  @IsNotEmpty()
-  @IsString()
-  hours: string;
+  employmentType: string;
 
   @IsNotEmpty()
   @IsString()

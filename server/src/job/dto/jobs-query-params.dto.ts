@@ -12,6 +12,39 @@ export class JobsQueryParamsDto {
   level?: string[];
 
   @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  field?: string[];
+
+  @IsOptional()
+  @IsString()
+  location?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  remote?: string[];
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  employmentType?: string[];
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  interview?: string[];
+
+  @IsOptional()
+  @IsString()
+  keyWord?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => value.split(' '), { toClassOnly: true })
+  @IsArray()
+  published?: string;
+
+  @IsOptional()
   @IsString()
   orderBy?: string;
 

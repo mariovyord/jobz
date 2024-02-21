@@ -52,27 +52,57 @@ export class Job {
   })
   updatedAt: Date;
 
+  /**
+   * Content (description) of the job posting in html format
+   */
   @Column({ type: 'varchar', length: 4000 })
-  content: string;
+  description: string;
 
+  /**
+   * The work field, meaning the type of it
+   *
+   * @example front-end, back-end, full-stack, sys-admin, etc.
+   */
   @Column({ type: 'varchar', length: 200 })
-  domain: string;
+  field: string;
 
+  /**
+   * City where work is located
+   *
+   * @example Sofia, Varna, Ruse, etc.
+   */
   @Column({ type: 'varchar', length: 200 })
   location: string;
 
+  /**
+   * Level in the company hierarchy
+   *
+   * @example junior-level, mid-level, senior-level, management, senior-management
+   */
   @Column({ type: 'varchar', length: 200 })
   level: string;
 
+  /**
+   * Is the job remote?
+   *
+   * @example office, remote, hybrid
+   */
   @Column({ type: 'varchar', length: 200 })
   remote: string;
 
+  /**
+   * Employment type
+   *
+   * @example full-time, part-time, freelance, internship
+   */
   @Column({ type: 'varchar', length: 200 })
-  type: string;
+  employmentType: string;
 
-  @Column({ type: 'varchar', length: 200 })
-  hours: string;
-
+  /**
+   * Type of interview
+   *
+   * @example office, remote
+   */
   @Column({ type: 'varchar', length: 200 })
   interview: string;
 

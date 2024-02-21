@@ -30,6 +30,58 @@ export class JobService {
       });
     }
 
+    if (queryParams.field) {
+      builder.andWhere(`job.field IN (:...values)`, {
+        values: queryParams.field,
+      });
+    }
+
+    if (queryParams.location) {
+      builder.andWhere(`job.location LIKE :value`, {
+        location: `%${queryParams.location}%`,
+      });
+    }
+
+    if (queryParams.remote) {
+      builder.andWhere(`job.remote IN (:...values)`, {
+        values: queryParams.remote,
+      });
+    }
+
+    if (queryParams.employmentType) {
+      builder.andWhere(`job.employmentType IN (:...values)`, {
+        values: queryParams.employmentType,
+      });
+    }
+
+    if (queryParams.interview) {
+      builder.andWhere(`job.interview IN (:...values)`, {
+        values: queryParams.interview,
+      });
+    }
+
+    if (queryParams.keyWord) {
+      builder.andWhere(`job.description LIKE :value`, {
+        keyWord: `%${queryParams.keyWord}%`,
+      });
+    }
+
+    if (queryParams.published) {
+      builder.andWhere(
+        `updated_at >=
+      CASE
+          WHEN :value = 'today' THEN CURRENT_DATE
+          WHEN :value = 'since-yesterday' THEN CURRENT_DATE - INTERVAL '1 day'
+          WHEN :value = 'since-7-days' THEN CURRENT_DATE - INTERVAL '7 days'
+          WHEN :value = 'since-14-days' THEN CURRENT_DATE - INTERVAL '14 days'
+          ELSE NULL
+      END`,
+        {
+          value: queryParams.published,
+        },
+      );
+    }
+
     // Pagination
     const defaultLimit = 20;
     builder.limit(queryParams.limit || defaultLimit);

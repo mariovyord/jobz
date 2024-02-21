@@ -11,13 +11,12 @@ export interface IJob {
   jobApplications: IJobApplication[];
   createdAt: Date;
   updatedAt: Date;
-  content: string;
-  domain: string;
+  description: string;
+  field: string;
   location: string;
   level: string;
   remote: string;
-  type: string;
-  hours: string;
+  employmentType: string;
   interview: string;
   imageUrl: string;
 }

@@ -1,7 +1,7 @@
 export const mockFilters = [
   {
     id: '1',
-    key: 'domain',
+    key: 'field',
     options: [
       { key: 'it-senior-management' },
       { key: 'ui-ux-creative' },

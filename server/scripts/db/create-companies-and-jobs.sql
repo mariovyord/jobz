@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS company (
 -- Create jobs table if not exists
 CREATE TABLE IF NOT EXISTS job (
     id UUID PRIMARY KEY,
-    content TEXT,
+    description TEXT,
     domain VARCHAR(255),
     location VARCHAR(255),
     level VARCHAR(255),

@@ -5,13 +5,12 @@ Table job {
   company UUID [ref: > company.id]
   created_at TIMESTAMP
   updated_at TIMESTAMP
-  content VARCHAR(4000)
-  domain VARCHAR(200)
+  description VARCHAR(4000)
+  field VARCHAR(200)
   location VARCHAR(200)
   level VARCHAR(200)
   remote VARCHAR(200)
-  type VARCHAR(200)
-  hours VARCHAR(200)
+  employmentType VARCHAR(200)
   interview VARCHAR(200)
   image_url VARCHAR(500)
 }
