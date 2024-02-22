@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   templateUrl: './jobs-count-strip.component.html',
   styleUrl: './jobs-count-strip.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JobsCountStripComponent {
   @Input({ required: true }) public allJobsCount: number | null;

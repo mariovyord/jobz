@@ -106,13 +106,14 @@ export class JobService {
     builder.limit(queryParams.limit || defaultLimit);
     builder.offset(queryParams.offset || 0);
 
-    // Mandatory operations
-    builder.innerJoinAndSelect(`job.company`, 'company');
-    builder.orderBy('job.updated_at', 'DESC');
-
+    // Return early if counting
     if (queryParams.count) {
       return await builder.getCount();
     }
+
+    // Mandatory operations
+    builder.innerJoinAndSelect(`job.company`, 'company');
+    builder.orderBy('job.updated_at', 'DESC');
 
     const jobs = await builder.getMany();
 

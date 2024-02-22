@@ -9,6 +9,8 @@ import { Params } from '@angular/router';
 })
 export class JobsService extends DataService<IJob> {
   private jobsCache = new Map();
+  private jobsCountCache: number;
+  private jobsCountTodayCache: number;
 
   override getPath(): string {
     return 'jobs';
@@ -56,10 +58,20 @@ export class JobsService extends DataService<IJob> {
   }
 
   public getAllJobsCount$(): Observable<number> {
-    return this.getCount$();
+    if (typeof this.jobsCountCache === 'number') {
+      return of(this.jobsCountCache);
+    }
+
+    return this.getCount$().pipe(tap((n) => (this.jobsCountCache = n)));
   }
 
   public getAllJobsCountToday$(): Observable<number> {
-    return of(2000);
+    if (typeof this.jobsCountTodayCache === 'number') {
+      return of(this.jobsCountTodayCache);
+    }
+
+    return this.getCount$({ published: 'today' }).pipe(
+      tap((n) => (this.jobsCountTodayCache = n))
+    );
   }
 }
