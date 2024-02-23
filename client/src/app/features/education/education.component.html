@@ -1,1 +1,7 @@
-<p>education works!</p>
+<app-filter-bar [filters]="(filters$ | async) || []"></app-filter-bar>
+<div class="content">
+  <app-job-feed [jobs]="jobs$ | async" [isLoading]="isLoading"></app-job-feed>
+  @if(!(isSmallScreen$ | async)) {
+  <app-top-companies></app-top-companies>
+  }
+</div>

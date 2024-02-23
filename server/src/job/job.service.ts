@@ -24,6 +24,12 @@ export class JobService {
       });
     }
 
+    if (queryParams.adType) {
+      builder.andWhere('job.ad_type = :type', {
+        type: queryParams.adType,
+      });
+    }
+
     if (queryParams.level) {
       builder.andWhere(`job.level IN (:...values)`, {
         values: queryParams.level,

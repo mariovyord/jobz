@@ -8,6 +8,7 @@ import {
   Delete,
   UseGuards,
   Query,
+  Req,
 } from '@nestjs/common';
 import { JobService } from './job.service';
 import { CreateJobDto } from './dto/create-job.dto';
@@ -15,34 +16,39 @@ import { UpdateJobDto } from './dto/update-job.dto';
 import { JwtGuard } from 'src/authz/jwt.guard';
 import { JobsQueryParamsDto } from './dto/jobs-query-params.dto';
 
-@Controller('jobs')
+@Controller()
 export class JobController {
   constructor(private readonly jobService: JobService) {}
 
   @UseGuards(JwtGuard)
-  @Post()
+  @Post(['jobs', 'edu'])
   create(@Body() createJobDto: CreateJobDto) {
     return this.jobService.create(createJobDto);
   }
 
-  @Get()
-  findAll(@Query() queryParams: JobsQueryParamsDto) {
-    return this.jobService.findAll(queryParams);
+  @Get('jobs')
+  findAllJobs(@Req() req: Request, @Query() queryParams: JobsQueryParamsDto) {
+    return this.jobService.findAll({ ...queryParams, adType: 'job' });
   }
 
-  @Get(':id')
+  @Get('edu')
+  findAllEdu(@Req() req: Request, @Query() queryParams: JobsQueryParamsDto) {
+    return this.jobService.findAll({ ...queryParams, adType: 'edu' });
+  }
+
+  @Get(['jobs/:id', 'edu/:id'])
   findOne(@Param('id') id: string) {
     return this.jobService.findOne(id);
   }
 
   @UseGuards(JwtGuard)
-  @Patch(':id')
+  @Patch(['jobs/:id', 'edu/:id'])
   update(@Param('id') id: string, @Body() updateJobDto: UpdateJobDto) {
     return this.jobService.update(id, updateJobDto);
   }
 
   @UseGuards(JwtGuard)
-  @Delete(':id')
+  @Delete(['jobs/:id', 'edu/:id'])
   remove(@Param('id') id: string) {
     return this.jobService.remove(id);
   }

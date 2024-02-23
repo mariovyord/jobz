@@ -23,6 +23,10 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
+  adType: 'job' | 'edu';
+
+  @IsNotEmpty()
+  @IsString()
   description: string;
 
   @IsNotEmpty()

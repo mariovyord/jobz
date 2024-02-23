@@ -18,6 +18,10 @@ export class JobsQueryParamsDto {
 
   @IsOptional()
   @IsString()
+  adType?: string;
+
+  @IsOptional()
+  @IsString()
   location?: string;
 
   @IsOptional()

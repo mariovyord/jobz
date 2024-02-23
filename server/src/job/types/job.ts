@@ -7,6 +7,7 @@ export interface IJob {
   title: string;
   companyId: string;
   company: Company;
+  adType: 'job' | 'edu';
   filters: Filter[];
   jobApplications: JobApplication[];
   createdAt: Date;

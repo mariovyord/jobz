@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
 import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.component';
 import { TopCompaniesComponent } from '../home/components/top-companies/top-companies.component';

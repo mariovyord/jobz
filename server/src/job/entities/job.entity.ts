@@ -39,6 +39,9 @@ export class Job implements IJob {
   @JoinColumn({ name: 'company_id' })
   company: Company;
 
+  @Column({ type: 'varchar', length: 3, default: 'job' })
+  adType: 'job' | 'edu';
+
   @ManyToMany(() => Filter)
   @JoinTable({
     name: 'job_filters',
