@@ -38,7 +38,7 @@
     <mat-card-header class="header">
       <mat-card-subtitle class="sub">
         <span class="spacer"></span>
-        <mat-icon>bookmark_border</mat-icon>
+        <mat-icon>notifications</mat-icon>
       </mat-card-subtitle>
       <a routerLink="/jobs" class="link company">
         <img [src]="'/assets/companies/1.png'" class="company-logo" />
@@ -49,16 +49,16 @@
             ></mat-card-subtitle
           >
           <mat-card-subtitle>
-            <span>110 служители; </span>
-            <span>V България от 2017 g.</span>
+            <span>110 {{ 'employees' | translate }}; </span>
+            <span>{{ 'in-bulgaria-from' | translate }} 2017</span>
           </mat-card-subtitle>
         </div>
       </a>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button>Статии</button>
-      <button mat-button>Обяви</button>
-      <button mat-button>Za нас</button>
+      <button mat-button>{{ 'articles-cap' | translate }}</button>
+      <button mat-button>{{ 'job-offers-cap' | translate }}</button>
+      <button mat-button>{{ 'about-us' | translate }}</button>
     </mat-card-actions>
   </div>
 </mat-card>

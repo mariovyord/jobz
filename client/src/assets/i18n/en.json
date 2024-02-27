@@ -107,5 +107,11 @@
   "employment-type": "Employment Type",
   "interview-type": "Interview Type",
   "remote": "Remote",
-  "hybrid": "Hybrid"
+  "hybrid": "Hybrid",
+
+  "articles-cap": "Articles",
+  "about-us": "About us",
+  "job_offers-cap": "Jobs",
+  "in-bulgaria-from": "In Bulgaria from",
+  "employees": "employees"
 }

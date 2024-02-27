@@ -107,5 +107,11 @@
   "employment-type": "Вид заетост",
   "interview-type": "Вид интервю",
   "remote": "От вкъщи",
-  "hybrid": "Хибридна"
+  "hybrid": "Хибридна",
+
+  "articles-cap": "Статии",
+  "about-us": "За нас",
+  "job-offers-cap": "Обяви",
+  "in-bulgaria-from": "В България от",
+  "employees": "служители"
 }
