@@ -23,11 +23,13 @@
             </span>
           </div>
           <div class="skills">
-            <div class="skill-logo">
-              <img [src]="'/assets/skills/sql.png'" />
-            </div>
-            <div class="skill-logo">
-              <img [src]="'/assets/skills/excel.png'" />
+            <div *ngFor="let skill of job.techStack; trackBy: trackTeckStack">
+              <div class="skill-logo">
+                <img
+                  [ngSrc]="'/assets/skills/' + skill +'.png'"
+                  width="20"
+                  height="20" />
+              </div>
             </div>
           </div>
         </mat-card-subtitle>

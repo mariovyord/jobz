@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { IJob } from '../../types/job';
+import { IJob, TTech } from '../../types/job';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -25,4 +25,8 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class JobCardComponent {
   @Input({ required: true }) job: IJob;
+
+  public trackTeckStack(index: number, techStack: TTech) {
+    return techStack;
+  }
 }
