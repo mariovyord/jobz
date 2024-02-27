@@ -84,7 +84,6 @@ export class FilterBottonSheetComponent implements OnInit {
   }
 
   public updateQueryParams() {
-    debugger;
     if (Object.keys(this.selectedFilters).length === 0) {
       return this.updatedQueryParams.next({
         [this.data.type]: null,
