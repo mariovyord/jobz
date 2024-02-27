@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from '../../core/services/local-storage/local-storage.service';
 
 @Injectable({

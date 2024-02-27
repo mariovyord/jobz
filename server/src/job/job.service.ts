@@ -36,9 +36,9 @@ export class JobService {
       });
     }
 
-    if (queryParams.field) {
-      builder.andWhere(`job.field IN (:...values)`, {
-        values: queryParams.field,
+    if (queryParams.fieldType) {
+      builder.andWhere(`job.field_type IN (:...values)`, {
+        values: queryParams.fieldType,
       });
     }
 
@@ -48,21 +48,21 @@ export class JobService {
       });
     }
 
-    if (queryParams.remote) {
-      builder.andWhere(`job.remote IN (:...values)`, {
-        values: queryParams.remote,
+    if (queryParams.remoteOptions) {
+      builder.andWhere(`job.remote_options IN (:...values)`, {
+        values: queryParams.remoteOptions,
       });
     }
 
     if (queryParams.employmentType) {
-      builder.andWhere(`job.employmentType IN (:...values)`, {
+      builder.andWhere(`job.employment_type IN (:...values)`, {
         values: queryParams.employmentType,
       });
     }
 
-    if (queryParams.interview) {
-      builder.andWhere(`job.interview IN (:...values)`, {
-        values: queryParams.interview,
+    if (queryParams.interviewType) {
+      builder.andWhere(`job.interview_type IN (:...values)`, {
+        values: queryParams.interviewType,
       });
     }
 

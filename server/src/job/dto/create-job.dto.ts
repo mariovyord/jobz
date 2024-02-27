@@ -3,9 +3,9 @@ import { Job } from '../entities/job.entity';
 import {
   TEmploymentType,
   TField,
-  TInterview,
+  TInterviewType,
   TLevel,
-  TRemote,
+  TRemoteOptions,
 } from '../types/job';
 
 export class CreateJobDto implements Partial<Job> {
@@ -31,7 +31,7 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
-  field: TField;
+  jobField: TField;
 
   @IsNotEmpty()
   @IsString()
@@ -43,7 +43,7 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
-  remote: TRemote;
+  remoteOptions: TRemoteOptions;
 
   @IsNotEmpty()
   @IsString()
@@ -51,7 +51,7 @@ export class CreateJobDto implements Partial<Job> {
 
   @IsNotEmpty()
   @IsString()
-  interview: TInterview;
+  interviewType: TInterviewType;
 
   @IsNotEmpty()
   @IsUrl()

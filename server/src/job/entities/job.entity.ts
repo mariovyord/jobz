@@ -17,10 +17,10 @@ import {
   TEmploymentType,
   TExperience,
   TField,
-  TInterview,
+  TInterviewType,
   TLanguage,
   TLevel,
-  TRemote,
+  TRemoteOptions,
   TTech,
 } from '../types/job';
 
@@ -78,7 +78,7 @@ export class Job implements IJob {
    * @example front-end, back-end, full-stack, sys-admin, etc.
    */
   @Column({ type: 'varchar', length: 200 })
-  field: TField;
+  jobField: TField;
 
   /**
    * City where work is located
@@ -126,7 +126,7 @@ export class Job implements IJob {
    * @example office, remote, hybrid
    */
   @Column({ type: 'varchar', length: 200 })
-  remote: TRemote;
+  remoteOptions: TRemoteOptions;
 
   /**
    * Employment type
@@ -142,7 +142,7 @@ export class Job implements IJob {
    * @example office, remote
    */
   @Column({ type: 'varchar', length: 200 })
-  interview: TInterview;
+  interviewType: TInterviewType;
 
   @Column({ type: 'varchar', length: 500 })
   imageUrl: string;

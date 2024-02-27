@@ -12,15 +12,15 @@ export interface IJob {
   createdAt: Date;
   updatedAt: Date;
   description: string;
-  field: TField;
+  jobField: TField;
   location: string;
   language: TLanguage[];
   techStack: TTech[];
   experience: TExperience;
   level: TLevel;
-  remote: TRemote;
+  remoteOptions: TRemoteOptions;
   employmentType: TEmploymentType;
-  interview: TInterview;
+  interviewType: TInterview;
   imageUrl: string;
 }
 
@@ -33,7 +33,7 @@ export type TLevel =
   | 'management'
   | 'senior-management';
 
-export type TRemote = 'office' | 'remote' | 'hybrid';
+export type TRemoteOptions = 'office' | 'remote' | 'hybrid';
 
 export type TInterview = 'on-site' | 'phone' | 'online';
 

@@ -101,5 +101,9 @@
   "key-words": "Ключови думи",
 
   "location": "Локация",
-  "salary": "Заплата"
+  "salary": "Заплата",
+
+  "field-type": "Област",
+  "employment-type": "Вид заетост",
+  "interview-type": "Вид интервю"
 }

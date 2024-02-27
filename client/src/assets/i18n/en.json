@@ -101,5 +101,9 @@
   "key-words": "Key Words",
 
   "location": "Location",
-  "salary": "Salary"
+  "salary": "Salary",
+
+  "field-type": "Field",
+  "employment-type": "Employment Type",
+  "interview-type": "Interview Type"
 }

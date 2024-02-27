@@ -14,7 +14,7 @@ export class JobsQueryParamsDto {
   @IsOptional()
   @Transform(({ value }) => value.split(' '), { toClassOnly: true })
   @IsArray()
-  field?: string[];
+  fieldType?: string[];
 
   @IsOptional()
   @IsString()
@@ -27,7 +27,7 @@ export class JobsQueryParamsDto {
   @IsOptional()
   @Transform(({ value }) => value.split(' '), { toClassOnly: true })
   @IsArray()
-  remote?: string[];
+  remoteOptions?: string[];
 
   @IsOptional()
   @Transform(({ value }) => value.split(' '), { toClassOnly: true })
@@ -37,7 +37,7 @@ export class JobsQueryParamsDto {
   @IsOptional()
   @Transform(({ value }) => value.split(' '), { toClassOnly: true })
   @IsArray()
-  interview?: string[];
+  interviewType?: string[];
 
   @IsOptional()
   @Transform(({ value }) => value.split(' '), { toClassOnly: true })
