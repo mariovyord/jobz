@@ -20,6 +20,7 @@ import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';
 import { IFilter, IFilterByType } from '../../types/filter';
+import { BehaviorSubject } from 'rxjs';
 
 @UntilDestroy()
 @Component({
@@ -40,6 +41,7 @@ import { IFilter, IFilterByType } from '../../types/filter';
 })
 export class FilterBottonSheetComponent implements OnInit {
   public selectedFilters: { [key: string]: IFilter } = {};
+  public updatedQueryParams = new BehaviorSubject<any>(null);
 
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: IFilterByType,
@@ -68,23 +70,31 @@ export class FilterBottonSheetComponent implements OnInit {
     this._bottomSheetRef.dismiss();
   }
 
-  public chipSelectionChange(chipEvent: MatChipSelectionChange, option: any) {
+  public chipSelectionChange(
+    chipEvent: MatChipSelectionChange,
+    option: IFilter
+  ) {
     if (chipEvent.selected) {
-      this.selectedFilters[option.key] = option;
+      this.selectedFilters[option.name] = option;
     } else {
-      delete this.selectedFilters[option.key];
+      delete this.selectedFilters[option.name];
     }
+
+    this.updateQueryParams();
   }
 
-  public getParams() {
+  public updateQueryParams() {
+    debugger;
     if (Object.keys(this.selectedFilters).length === 0) {
-      return null;
+      return this.updatedQueryParams.next({
+        [this.data.type]: null,
+      });
     }
 
-    return {
+    return this.updatedQueryParams.next({
       [this.data.type]: Object.values(this.selectedFilters)
         .map((y) => y.name)
         .join('+'),
-    };
+    });
   }
 }
