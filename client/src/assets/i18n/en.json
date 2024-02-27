@@ -105,5 +105,7 @@
 
   "field-type": "Field",
   "employment-type": "Employment Type",
-  "interview-type": "Interview Type"
+  "interview-type": "Interview Type",
+  "remote": "Remote",
+  "hybrid": "Hybrid"
 }

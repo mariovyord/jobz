@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { IJob } from '../../types/job';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-job-card',
@@ -22,6 +23,7 @@ import { IJob } from '../../types/job';
     MatButtonModule,
     NgOptimizedImage,
     CommonModule,
+    TranslateModule,
   ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.less',

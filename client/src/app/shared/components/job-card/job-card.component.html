@@ -10,11 +10,17 @@
         <mat-card-title>{{ job.title }}</mat-card-title>
         <mat-card-subtitle>
           <div>
-            <span *ngIf="job.location">{{ job.location }}; </span>
-            <span *ngIf="job.level">Ниво {{ job.level }}; </span>
-            <span *ngIf="job.remoteOptions">{{ job.remoteOptions }}; </span>
-            <span *ngIf="job.employmentType">{{ job.employmentType }}; </span>
-            <span *ngIf="job.interviewType">{{ job.interviewType }}; </span>
+            <span *ngIf="job.location">{{ job.location | translate }}; </span>
+            <span *ngIf="job.level">{{ job.level | translate }}; </span>
+            <span *ngIf="job.remoteOptions"
+              >{{ job.remoteOptions | translate }};
+            </span>
+            <span *ngIf="job.employmentType"
+              >{{ job.employmentType | translate }};
+            </span>
+            <span *ngIf="job.interviewType"
+              >{{ job.interviewType | translate }}
+            </span>
           </div>
           <div class="skills">
             <div class="skill-logo">

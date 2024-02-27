@@ -105,5 +105,7 @@
 
   "field-type": "Област",
   "employment-type": "Вид заетост",
-  "interview-type": "Вид интервю"
+  "interview-type": "Вид интервю",
+  "remote": "От вкъщи",
+  "hybrid": "Хибридна"
 }
