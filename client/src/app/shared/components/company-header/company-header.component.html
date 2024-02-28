@@ -1,7 +1,7 @@
 @if (company) {
 <header class="header">
-  <img src="/assets/companies/2.png" />
-  <h2 class="mat-headline-2">Company IT EOOD</h2>
+  <img src="/assets/companies/2.png" alt="Company logo" />
+  <h2 class="mat-headline-2">{{company.name}}</h2>
 </header>
 } @else {
 <ngx-skeleton-loader
@@ -9,6 +9,5 @@
     height: '300px',
   }"
   appearance="line"
-  animation="pulse"
-/>
+  animation="pulse" />
 }

@@ -114,7 +114,12 @@
   "job_offers-cap": "Jobs",
   "all-job-offers-cap": "All jobs",
   "in-bulgaria-from": "In Bulgaria from",
+  "in-bulgaria": "In Bulgaria",
   "employees": "employees",
   "Sofia": "Sofia",
-  "interview": "interview"
+  "interview": "interview",
+
+  "about-the-company": "About the company",
+  "globally": "Globally",
+  "contacts": "Contacts"
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -6,11 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { CompaniesService } from './services/companies.service';
 import { CompanyHeaderComponent } from '../../../../shared/components/company-header/company-header.component';
 import { ICompany } from '../../../../shared/types/company';
-import { BehaviorSubject, Observable, mergeMap, of, tap } from 'rxjs';
-import { JobsService } from '../../../../shared/services/jobs/jobs.service';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-company-details',
@@ -23,11 +23,12 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatIconModule,
     CommonModule,
     NgxSkeletonLoaderModule,
+    TranslateModule
   ],
   templateUrl: './company-details.component.html',
-  styleUrl: './company-details.component.less',
+  styleUrl: './company-details.component.less'
 })
-export class CompanyDetailsComponent {
+export class CompanyDetailsComponent implements OnInit {
   public company$: Observable<ICompany>;
   public isLoading$ = new BehaviorSubject(true);
 
@@ -38,7 +39,6 @@ export class CompanyDetailsComponent {
 
   public ngOnInit(): void {
     const companyId = this.route.snapshot.paramMap.get('companyId');
-
     this.company$ = this.companiesService
       .getCompanyById$(companyId)
       .pipe(tap(() => this.isLoading$.next(false)));
