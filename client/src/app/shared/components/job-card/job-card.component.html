@@ -45,13 +45,13 @@
       </mat-card-subtitle>
       <a routerLink="/jobs" class="link company">
         <img
-          [src]="'/assets/companies/1.png'"
+          [src]="'/assets/companies/' + job.company.logoUrl + '.png'"
           class="company-logo"
           alt="Company logo" />
         <div *ngIf="job.company">
           <mat-card-subtitle
             ><span class="company-title"
-              >{{ job.company.legalName }}</span
+              >{{ job.company.name }}</span
             ></mat-card-subtitle
           >
           <mat-card-subtitle>

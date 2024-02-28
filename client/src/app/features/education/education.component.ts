@@ -26,7 +26,8 @@ import { EduService } from '../../shared/services/edu/edu.service';
   ],
   templateUrl: './education.component.html',
   styleUrl: './education.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  hostDirectives: []
 })
 export class EducationComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;

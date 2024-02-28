@@ -2,34 +2,25 @@
 <h5 class="mat-headline-5 title">{{ title }}</h5>
 }
 <div class="logos">
+  @for(company of topCompanies; track company) {
   <a class="image">
-    <img [src]="'/assets/companies/1.png'" />
+    <img [src]="'/assets/companies/' + company + '.png'" [alt]="company" />
   </a>
+  } @for(company of topCompanies; track company) {
   <a class="image">
-    <img [src]="'/assets/companies/2.png'" />
+    <img [src]="'/assets/companies/' + company + '.png'" [alt]="company" />
   </a>
+  } @for(company of topCompanies; track company) {
   <a class="image">
-    <img [src]="'/assets/companies/3.png'" />
+    <img [src]="'/assets/companies/' + company + '.png'" [alt]="company" />
   </a>
+  } @for(company of topCompanies; track company) {
   <a class="image">
-    <img [src]="'/assets/companies/4.png'" />
+    <img [src]="'/assets/companies/' + company + '.png'" [alt]="company" />
   </a>
+  } @for(company of topCompanies; track company) {
   <a class="image">
-    <img [src]="'/assets/companies/5.png'" />
+    <img [src]="'/assets/companies/' + company + '.png'" [alt]="company" />
   </a>
-  <a class="image">
-    <img [src]="'/assets/companies/6.png'" />
-  </a>
-  <a class="image">
-    <img [src]="'/assets/companies/7.png'" />
-  </a>
-  <a class="image">
-    <img [src]="'/assets/companies/8.png'" />
-  </a>
-  <a class="image">
-    <img [src]="'/assets/companies/9.png'" />
-  </a>
-  <a class="image">
-    <img [src]="'/assets/companies/10.png'" />
-  </a>
+  }
 </div>

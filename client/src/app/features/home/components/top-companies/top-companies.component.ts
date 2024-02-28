@@ -7,10 +7,18 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   imports: [NgOptimizedImage],
   templateUrl: './top-companies.component.html',
   styleUrl: './top-companies.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopCompaniesComponent {
-  public rows = new Array(4);
+  public topCompanies = [
+    'banana',
+    'bapple',
+    'fake',
+    'frontier',
+    'metflix',
+    'moogle',
+    'nicrosoft'
+  ];
 
   @Input() public title = '';
 }
