@@ -2,11 +2,12 @@
   @for (link of links; track link) {
   <a
     mat-tab-link
-    (click)="activeLink = link.url"
-    [active]="activeLink == link.url"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+    [routerLinkActiveOptions]="{exact:true}"
     [routerLink]="link.url"
-  >
-    {{ link.title }}
+    >{{ link.title }}
   </a>
   }
 </nav>

@@ -112,6 +112,7 @@
   "articles-cap": "Articles",
   "about-us": "About us",
   "job_offers-cap": "Jobs",
+  "all-job-offers-cap": "All jobs ({{value}})",
   "in-bulgaria-from": "In Bulgaria from",
   "employees": "employees"
 }

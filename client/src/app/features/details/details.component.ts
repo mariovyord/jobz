@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 interface ILink {
   url: string;
@@ -12,17 +13,20 @@ interface ILink {
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [MatTabsModule, RouterModule],
+  imports: [MatTabsModule, RouterModule, TranslateModule],
+  providers: [TranslatePipe],
   templateUrl: './details.component.html',
-  styleUrl: './details.component.less',
+  styleUrl: './details.component.less'
 })
 export class DetailsComponent implements OnInit {
   public jobId: string;
   public companyId: string;
-  public activeLink: string;
   public links: ILink[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private translate: TranslatePipe
+  ) {}
 
   public ngOnInit(): void {
     this.route.data.pipe(untilDestroyed(this)).subscribe(({ details }) => {
@@ -30,26 +34,22 @@ export class DetailsComponent implements OnInit {
       this.companyId = details.company.id;
       this.setLinks(this.jobId, this.companyId);
     });
-
-    this.route.paramMap.pipe(untilDestroyed(this)).subscribe(() => {
-      this.activeLink = this.router.url;
-    });
   }
 
   public setLinks(jobId: string, companyId: string) {
     this.links = [
       {
         url: `/jobs/${jobId}`,
-        title: 'Обява',
+        title: this.translate.transform('job-offers-cap')
       },
       {
         url: `/jobs/${jobId}/${companyId}`,
-        title: 'За нас',
+        title: this.translate.transform('about-us')
       },
       {
         url: `/jobs/${jobId}/${companyId}/jobs`,
-        title: 'Всички обяви (3)',
-      },
+        title: this.translate.transform('all-job-offers-cap', { value: 3 })
+      }
     ];
   }
 }

@@ -27,6 +27,7 @@
               <div class="skill-logo">
                 <img
                   [ngSrc]="'/assets/skills/' + skill +'.png'"
+                  [alt]="skill"
                   width="20"
                   height="20" />
               </div>
@@ -43,7 +44,10 @@
         <mat-icon>notifications</mat-icon>
       </mat-card-subtitle>
       <a routerLink="/jobs" class="link company">
-        <img [src]="'/assets/companies/1.png'" class="company-logo" />
+        <img
+          [src]="'/assets/companies/1.png'"
+          class="company-logo"
+          alt="Company logo" />
         <div *ngIf="job.company">
           <mat-card-subtitle
             ><span class="company-title"
@@ -51,16 +55,33 @@
             ></mat-card-subtitle
           >
           <mat-card-subtitle>
-            <span>110 {{ 'employees' | translate }}; </span>
+            <span
+              >{{ job.company.employeesCount }} {{ 'employees' | translate }};
+            </span>
             <span>{{ 'in-bulgaria-from' | translate }} 2017</span>
           </mat-card-subtitle>
         </div>
       </a>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button>{{ 'articles-cap' | translate }}</button>
-      <button mat-button>{{ 'job-offers-cap' | translate }}</button>
-      <button mat-button>{{ 'about-us' | translate }}</button>
+      <a
+        mat-button
+        [routerLink]="'/blog?companyId=' + job.companyId"
+        class="link company"
+        >{{ 'articles-cap' | translate }}</a
+      >
+      <a
+        mat-button
+        [routerLink]="['/jobs', job.id, job.companyId , 'jobs']"
+        class="link company"
+        >{{ 'job-offers-cap' | translate }}</a
+      >
+      <a
+        mat-button
+        [routerLink]="['/jobs/', job.id, job.companyId]"
+        class="link company"
+        >{{ 'about-us' | translate }}</a
+      >
     </mat-card-actions>
   </div>
 </mat-card>
