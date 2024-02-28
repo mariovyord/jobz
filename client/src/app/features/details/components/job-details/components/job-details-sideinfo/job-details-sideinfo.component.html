@@ -1,34 +1,36 @@
+@if(job && !isLoading) {
 <mat-list>
-  <div mat-subheader>10.01.2024</div>
+  <div mat-subheader>{{job.createdAt | date:"dd.MM.yyyy"}}</div>
   <div mat-subheader>
-    <span class="title">Procure to Pay Global Process Owner, Company IT</span>
+    <span><b>{{job.title}}</b>, {{job.company.name}}</span>
   </div>
   <mat-list-item>
     <mat-icon matListItemIcon>location_on</mat-icon>
-    <div matListItemTitle>София</div>
+    <div matListItemTitle>{{job.location | translate}}</div>
   </mat-list-item>
   <mat-list-item>
     <mat-icon matListItemIcon>stairs</mat-icon>
-    <div matListItemTitle>Ниво Management</div>
+    <div matListItemTitle>{{job.level | translate}}</div>
   </mat-list-item>
   <mat-list-item>
     <mat-icon matListItemIcon>psychology</mat-icon>
-    <div matListItemTitle>Години опит 10+</div>
+    <div matListItemTitle>{{job.experience | translate}}</div>
   </mat-list-item>
   <mat-list-item>
     <mat-icon matListItemIcon>chair</mat-icon>
-    <div matListItemTitle>Възможност за работа от вкъщи</div>
-  </mat-list-item>
-  <mat-list-item>
-    <mat-icon matListItemIcon>work</mat-icon>
-    <div matListItemTitle>Постоянна работа</div>
+    <div matListItemTitle>{{job.remoteOptions | translate}}</div>
   </mat-list-item>
   <mat-list-item>
     <mat-icon matListItemIcon>schedule</mat-icon>
-    <div matListItemTitle>Пълно работно време</div>
+    <div matListItemTitle>{{job.employmentType | translate}}</div>
   </mat-list-item>
   <mat-list-item>
     <mat-icon matListItemIcon>3p</mat-icon>
-    <div matListItemTitle>Дистанционно интервю</div>
+    <div matListItemTitle>
+      {{job.interviewType | translate}} {{'interview' | translate}}
+    </div>
   </mat-list-item>
 </mat-list>
+} @else {
+<div>Loading...</div>
+}

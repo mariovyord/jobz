@@ -1,7 +1,7 @@
 <app-filter-bar [filters]="filters$ | async"></app-filter-bar>
 <div class="content">
   <app-job-feed [jobs]="jobs$ | async" [isLoading]="isLoading"></app-job-feed>
-  @if(!(isSmallScreen$ | async)) {
+  @if((isSmallScreen$ | async) === false) {
   <app-top-companies></app-top-companies>
   }
 </div>

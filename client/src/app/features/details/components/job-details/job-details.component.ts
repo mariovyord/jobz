@@ -5,18 +5,7 @@ import { JobDetailsSideinfoComponent } from './components/job-details-sideinfo/j
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  BehaviorSubject,
-  Observable,
-  debounce,
-  debounceTime,
-  delay,
-  finalize,
-  interval,
-  tap,
-  throttle,
-  throttleTime,
-} from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { IJob } from '../../../../shared/types/job';
 import { JobsService } from '../../../../shared/services/jobs/jobs.service';
@@ -31,10 +20,10 @@ import { JobsService } from '../../../../shared/services/jobs/jobs.service';
     MatButtonModule,
     RouterModule,
     MatIconModule,
-    CommonModule,
+    CommonModule
   ],
   templateUrl: './job-details.component.html',
-  styleUrl: './job-details.component.less',
+  styleUrl: './job-details.component.less'
 })
 export class JobDetailsComponent implements OnInit {
   public job$: Observable<IJob>;

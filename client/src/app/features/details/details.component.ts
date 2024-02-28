@@ -48,7 +48,7 @@ export class DetailsComponent implements OnInit {
       },
       {
         url: `/jobs/${jobId}/${companyId}/jobs`,
-        title: this.translate.transform('all-job-offers-cap', { value: 3 })
+        title: this.translate.transform('all-job-offers-cap')
       }
     ];
   }

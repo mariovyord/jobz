@@ -5,14 +5,13 @@
     height: '250px',
   }"
   appearance="line"
-  animation="pulse"
-/>
+  animation="pulse" />
 <ngx-skeleton-loader count="15" appearance="line" animation="pulse" />
 
 } @else if (!isLoading && job) {<img
   src="/assets/companies/cover.webp"
   class="logo"
-/>
+  alt="Company logo" />
 <h2>{{ job.title }}</h2>
 <h3>{{ job.company.name }}</h3>
 <quill-view [content]="job.description" format="html" theme="snow"></quill-view>

@@ -1,8 +1,7 @@
 <div>
   <app-job-details-description
     [job]="job$ | async"
-    [isLoading]="isLoading$ | async"
-  ></app-job-details-description>
+    [isLoading]="isLoading$ | async"></app-job-details-description>
   <div class="submit-wrapper">
     <div class="btns-row">
       <a mat-fab extended [routerLink]="'jobs/1'">
@@ -21,6 +20,10 @@
   </div>
 </div>
 <div>
-  <app-job-details-sideinfo></app-job-details-sideinfo>
-  <app-job-details-sidecompany></app-job-details-sidecompany>
+  <app-job-details-sideinfo
+    [job]="job$ | async"
+    [isLoading]="isLoading$ | async"></app-job-details-sideinfo>
+  <app-job-details-sidecompany
+    [job]="job$ | async"
+    [isLoading]="isLoading$ | async"></app-job-details-sidecompany>
 </div>

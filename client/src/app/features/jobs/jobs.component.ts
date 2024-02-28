@@ -2,21 +2,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FilterBarComponent } from '../../shared/components/filter-bar/filter-bar.component';
 import { JobFeedComponent } from '../../shared/components/job-feed/job-feed.component';
 import { TopCompaniesComponent } from '../home/components/top-companies/top-companies.component';
-import { BreakpointObserver, LayoutModule } from '@angular/cdk/layout';
+import { LayoutModule } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
 import { JobsService } from '../../shared/services/jobs/jobs.service';
-import {
-  BehaviorSubject,
-  Observable,
-  catchError,
-  finalize,
-  mergeMap,
-  of,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, Observable, finalize, mergeMap } from 'rxjs';
 import { IJob } from '../../shared/types/job';
 import { IFilterByType } from '../../shared/types/filter';
 import { ActivatedRoute } from '@angular/router';
@@ -30,11 +22,11 @@ import { ActivatedRoute } from '@angular/router';
     JobFeedComponent,
     TopCompaniesComponent,
     AsyncPipe,
-    LayoutModule,
+    LayoutModule
   ],
   templateUrl: './jobs.component.html',
   styleUrl: './jobs.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JobsComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;
@@ -71,7 +63,7 @@ export class JobsComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error fetching jobs', err);
-        },
+        }
       });
   }
 }

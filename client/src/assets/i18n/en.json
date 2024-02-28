@@ -112,7 +112,9 @@
   "articles-cap": "Articles",
   "about-us": "About us",
   "job_offers-cap": "Jobs",
-  "all-job-offers-cap": "All jobs ({{value}})",
+  "all-job-offers-cap": "All jobs",
   "in-bulgaria-from": "In Bulgaria from",
-  "employees": "employees"
+  "employees": "employees",
+  "Sofia": "Sofia",
+  "interview": "interview"
 }

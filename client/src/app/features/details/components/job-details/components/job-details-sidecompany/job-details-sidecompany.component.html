@@ -1,23 +1,35 @@
-<img class="logo" src="assets/companies/3.png" />
+@if(job && !isLoading) {
+<img class="logo" src="assets/companies/3.png" alt="Compant logo" />
 <div mat-subheader>
-  <span class="title">Company IT EOOD</span>
+  <span class="title">{{job.company.name}}</span>
 </div>
 <mat-divider></mat-divider>
 <div mat-subheader>
-  <span
-    >HR solutions, workforce solutions, permanent placement, career transition,
-    talent development, business process outsourcing, consulting, Human
-    Resources, managed services, Reskilling, and Upskilling</span
-  >
+  <span>{{job.company.shortDescription}}</span>
 </div>
 <mat-list>
   <mat-list-item>
     <mat-icon matListItemIcon>calendar_today</mat-icon>
-    <div matListItemTitle>В България от 2021</div>
+    <div matListItemTitle>
+      {{ 'in-bulgaria-from' | translate }} {{job.company.bulgariaFrom}}
+    </div>
   </mat-list-item>
 </mat-list>
 <mat-divider></mat-divider>
 <div class="actions">
-  <button mat-button><mat-icon>list</mat-icon>Обяви (10)</button>
-  <button mat-button><mat-icon>search</mat-icon>Виж профила</button>
+  <a
+    mat-button
+    [routerLink]="['/jobs', job.id, job.companyId , 'jobs']"
+    class="link company"
+    ><mat-icon>list</mat-icon>{{ 'job-offers-cap' | translate }}</a
+  >
+  <a
+    mat-button
+    [routerLink]="['/jobs/', job.id, job.companyId]"
+    class="link company"
+    ><mat-icon>search</mat-icon>{{ 'about-us' | translate }}</a
+  >
 </div>
+} @else {
+<div>Loading...</div>
+}

@@ -112,7 +112,9 @@
   "articles-cap": "Статии",
   "about-us": "За нас",
   "job-offers-cap": "Обяви",
-  "all-job-offers-cap": "Всички обяви ({{value}})",
+  "all-job-offers-cap": "Всички обяви",
   "in-bulgaria-from": "В България от",
-  "employees": "служители"
+  "employees": "служители",
+  "Sofia": "София",
+  "interview": "интервю"
 }
