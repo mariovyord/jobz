@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { JobCardComponent } from '../job-card/job-card.component';
 import { IJob } from '../../types/job';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
@@ -14,7 +9,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   imports: [JobCardComponent, NgxSkeletonLoaderModule],
   templateUrl: './job-feed.component.html',
   styleUrl: './job-feed.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JobFeedComponent {
   @Input() public mode: 'job' | 'edu' = 'job';

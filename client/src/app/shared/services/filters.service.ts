@@ -1,19 +1,11 @@
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable,
-  filter,
-  map,
-  of,
-  switchMap,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, Observable, map, of, switchMap, tap } from 'rxjs';
 import { DataService } from '../../core/services/api/data.service';
 import { IFilter, IFilterByType } from '../types/filter';
 
 // TODO: Save filters to localStorage and reuse them
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FiltersService extends DataService<IFilter> {
   override getPath(): string {
@@ -64,7 +56,7 @@ export class FiltersService extends DataService<IFilter> {
       if (!acc[x.type]) {
         acc[x.type] = {
           type: x.type,
-          options: [],
+          options: []
         };
       }
 

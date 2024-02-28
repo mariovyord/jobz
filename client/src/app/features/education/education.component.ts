@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
-import { JobsService } from '../../shared/services/jobs/jobs.service';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, finalize, mergeMap } from 'rxjs';
 import { IFilterByType } from '../../shared/types/filter';
@@ -23,13 +22,13 @@ import { EduService } from '../../shared/services/edu/edu.service';
     JobFeedComponent,
     TopCompaniesComponent,
     AsyncPipe,
-    LayoutModule,
+    LayoutModule
   ],
   templateUrl: './education.component.html',
   styleUrl: './education.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EducationComponent {
+export class EducationComponent implements OnInit {
   public filters$: Observable<IFilterByType[]>;
   public jobs$ = new BehaviorSubject<IJob[]>([]);
   public isSmallScreen$ = this.responsiveService.isSmallScreen$;
@@ -64,7 +63,7 @@ export class EducationComponent {
         },
         error: (err) => {
           console.error('Error fetching jobs', err);
-        },
+        }
       });
   }
 }

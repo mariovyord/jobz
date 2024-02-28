@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   NgZone,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import { SecondaryNavComponent } from '../../core/components/secondary-nav/secondary-nav.component';
 import { JobsCountStripComponent } from './components/jobs-count-strip/jobs-count-strip.component';
@@ -13,7 +13,7 @@ import { FiltersService } from '../../shared/services/filters.service';
 import { AsyncPipe } from '@angular/common';
 import { JobsService } from '../../shared/services/jobs/jobs.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { UntilDestroy } from '@ngneat/until-destroy';
 
 @UntilDestroy()
 @Component({
@@ -25,11 +25,11 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
     FilterBarComponent,
     TopCompaniesComponent,
     JobNewsComponent,
-    AsyncPipe,
+    AsyncPipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   public filters$ = this.filtersService.getAllFiltersByType$();
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     countObservable$.subscribe((count: number) => {
       this.ngZone.runOutsideAngular(() => {
         const intervalId = setInterval(() => {
-          let current = target$.value;
+          const current = target$.value;
           if (current < count) {
             this.ngZone.run(() => {
               target$.next(current + 1);
