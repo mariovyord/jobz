@@ -1,4 +1,7 @@
 {
+  "paths": {
+    "@shared/*": ["src/shared/*"]
+  },
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,

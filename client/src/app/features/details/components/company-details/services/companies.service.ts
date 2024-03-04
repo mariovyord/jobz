@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../../../../../core/services/api/data.service';
-import { ICompany } from '../../../../../shared/types/company';
+import { ICompany } from '@shared/interfaces/company';
 import { of, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CompaniesService extends DataService<ICompany> {
   private companiesCache = new Map();

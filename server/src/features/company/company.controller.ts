@@ -12,7 +12,7 @@ import {
 import { CompanyService } from './company.service';
 import { CreateCompanyDto } from './dto/create-company.dto';
 import { UpdateCompanyDto } from './dto/update-company.dto';
-import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
+import { SetUserIdInterceptor } from 'src/interceptors/set-user-id.interceptor';
 import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('company')

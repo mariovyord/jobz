@@ -1,6 +1,6 @@
-import { Company } from 'src/company/entities/company.entity';
-import { Filter } from 'src/filter/entities/filter.entity';
-import { JobApplication } from 'src/job-application/entities/job-application.entity';
+import { Company } from 'src/features/company/entities/company.entity';
+import { Filter } from 'src/features/filter/entities/filter.entity';
+import { JobApplication } from 'src/features/job-application/entities/job-application.entity';
 import {
   Column,
   CreateDateColumn,
@@ -22,7 +22,7 @@ import {
   TLevel,
   TRemoteOptions,
   TTech,
-} from '../types/job';
+} from 'src/shared/interfaces/job';
 
 @Entity()
 export class Job implements IJob {

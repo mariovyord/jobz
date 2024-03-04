@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { IJob } from '../../../../../../shared/types/job';
+import { IJob } from '@shared/interfaces/job';
 import { TranslateModule } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 

@@ -12,7 +12,7 @@ import {
 import { JobApplicationService } from './job-application.service';
 import { CreateJobApplicationDto } from './dto/create-job-application.dto';
 import { UpdateJobApplicationDto } from './dto/update-job-application.dto';
-import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
+import { SetUserIdInterceptor } from 'src/interceptors/set-user-id.interceptor';
 import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('job-applications')

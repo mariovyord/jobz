@@ -14,7 +14,7 @@ import {
   MatBottomSheetModule
 } from '@angular/material/bottom-sheet';
 import { FilterBottonSheetComponent } from '../filter-botton-sheet/filter-botton-sheet.component';
-import { IFilterByType } from '../../types/filter';
+import { IFilterByType } from '@shared/interfaces/filter';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';

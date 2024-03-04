@@ -13,7 +13,7 @@ import { AccountService } from './account.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
+import { SetUserIdInterceptor } from 'src/interceptors/set-user-id.interceptor';
 
 @Controller('accounts')
 export class AccountController {

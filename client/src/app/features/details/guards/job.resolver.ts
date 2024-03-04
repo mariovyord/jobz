@@ -1,9 +1,9 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, mergeMap, of } from 'rxjs';
-import { IJob } from '../../../shared/types/job';
+import { IJob } from '@shared/interfaces/job';
 import { inject } from '@angular/core';
 import { JobsService } from '../../../shared/services/jobs/jobs.service';
-import { ICompany } from '../../../shared/types/company';
+import { ICompany } from '@shared/interfaces/company';
 
 /**
  * This guard ensures that when navigating the job is loaded

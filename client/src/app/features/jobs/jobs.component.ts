@@ -9,8 +9,8 @@ import { ResponsiveService } from '../../shared/services/responsive.service';
 import { FiltersService } from '../../shared/services/filters.service';
 import { JobsService } from '../../shared/services/jobs/jobs.service';
 import { BehaviorSubject, Observable, finalize, mergeMap } from 'rxjs';
-import { IJob } from '../../shared/types/job';
-import { IFilterByType } from '../../shared/types/filter';
+import { IJob } from '@shared/interfaces/job';
+import { IFilterByType } from '@shared/interfaces/filter';
 import { ActivatedRoute } from '@angular/router';
 
 @UntilDestroy()

@@ -1,0 +1,2 @@
+AUTH0_ISSUER_URL=https://dev-gqptslnciisvezm7.eu.auth0.com/
+AUTH0_AUDIENCE=http://localhost:3000

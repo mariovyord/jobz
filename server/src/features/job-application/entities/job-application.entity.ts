@@ -5,10 +5,11 @@ import {
   JoinColumn,
   Column,
 } from 'typeorm';
-import { Job } from 'src/job/entities/job.entity';
+import { Job } from 'src/features/job/entities/job.entity';
+import { IJobApplication } from 'src/shared/interfaces/job-application';
 
 @Entity()
-export class JobApplication {
+export class JobApplication implements IJobApplication {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

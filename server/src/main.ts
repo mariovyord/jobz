@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { setupSwagger } from './config/swagger.config';
 import { ValidationPipe } from '@nestjs/common';
-import { DelayInterceptor } from './shared/interceptors/delay.interceptor';
+import { DelayInterceptor } from './interceptors/delay.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

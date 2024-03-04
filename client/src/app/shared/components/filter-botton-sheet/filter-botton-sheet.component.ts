@@ -2,16 +2,16 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import {
   MAT_BOTTOM_SHEET_DATA,
-  MatBottomSheetRef,
+  MatBottomSheetRef
 } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatChipSelectionChange,
-  MatChipsModule,
+  MatChipsModule
 } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,7 +19,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateModule } from '@ngx-translate/core';
-import { IFilter, IFilterByType } from '../../types/filter';
+import { IFilter, IFilterByType } from '@shared/interfaces/filter';
 import { BehaviorSubject } from 'rxjs';
 
 @UntilDestroy()
@@ -33,11 +33,11 @@ import { BehaviorSubject } from 'rxjs';
     RouterModule,
     MatChipsModule,
     AsyncPipe,
-    TranslateModule,
+    TranslateModule
   ],
   templateUrl: './filter-botton-sheet.component.html',
   styleUrl: './filter-botton-sheet.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterBottonSheetComponent implements OnInit {
   public selectedFilters: { [key: string]: IFilter } = {};
@@ -86,14 +86,14 @@ export class FilterBottonSheetComponent implements OnInit {
   public updateQueryParams() {
     if (Object.keys(this.selectedFilters).length === 0) {
       return this.updatedQueryParams.next({
-        [this.data.type]: null,
+        [this.data.type]: null
       });
     }
 
     return this.updatedQueryParams.next({
       [this.data.type]: Object.values(this.selectedFilters)
         .map((y) => y.name)
-        .join('+'),
+        .join('+')
     });
   }
 }

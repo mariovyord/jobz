@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../../../core/services/api/data.service';
-import { IJob } from '../../types/job';
+import { IJob } from '@shared/interfaces/job';
 import { Observable, of, tap } from 'rxjs';
 import { Params } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class JobsService extends DataService<IJob> {
   private jobsCache = new Map();

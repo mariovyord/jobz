@@ -1,12 +1,12 @@
 import { IsNotEmpty, IsUrl, IsString, IsArray, IsUUID } from 'class-validator';
 import { Job } from '../entities/job.entity';
 import {
-  TEmploymentType,
   TField,
   TInterviewType,
   TLevel,
   TRemoteOptions,
-} from '../types/job';
+  TEmploymentType,
+} from 'src/shared/interfaces/job';
 
 export class CreateJobDto implements Partial<Job> {
   @IsNotEmpty()

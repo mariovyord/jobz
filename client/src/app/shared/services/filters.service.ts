@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, of, switchMap, tap } from 'rxjs';
 import { DataService } from '../../core/services/api/data.service';
-import { IFilter, IFilterByType } from '../types/filter';
+import { IFilter, IFilterByType } from '@shared/interfaces/filter';
 
 // TODO: Save filters to localStorage and reuse them
 @Injectable({

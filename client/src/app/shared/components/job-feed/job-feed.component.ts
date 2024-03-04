@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { JobCardComponent } from '../job-card/job-card.component';
-import { IJob } from '../../types/job';
+import { IJob } from '@shared/interfaces/job';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({

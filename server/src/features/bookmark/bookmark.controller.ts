@@ -12,7 +12,7 @@ import {
 import { BookmarkService } from './bookmark.service';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { UpdateBookmarkDto } from './dto/update-bookmark.dto';
-import { SetUserIdInterceptor } from 'src/shared/interceptors/set-user-id.interceptor';
+import { SetUserIdInterceptor } from 'src/interceptors/set-user-id.interceptor';
 import { JwtGuard } from 'src/authz/jwt.guard';
 
 @Controller('bookmarks')

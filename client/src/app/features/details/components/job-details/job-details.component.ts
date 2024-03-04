@@ -7,7 +7,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { IJob } from '../../../../shared/types/job';
+import { IJob } from '@shared/interfaces/job';
 import { JobsService } from '../../../../shared/services/jobs/jobs.service';
 
 @Component({

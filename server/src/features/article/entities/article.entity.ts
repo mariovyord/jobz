@@ -1,4 +1,5 @@
-import { Company } from 'src/company/entities/company.entity';
+import { Company } from 'src/features/company/entities/company.entity';
+import { IArticle } from 'src/shared/interfaces/article';
 import {
   Column,
   CreateDateColumn,
@@ -10,7 +11,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Article {
+export class Article implements IArticle {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

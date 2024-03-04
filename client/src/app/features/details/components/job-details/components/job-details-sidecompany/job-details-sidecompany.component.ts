@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { IJob } from '../../../../../../shared/types/job';
+import { IJob } from '@shared/interfaces/job';
 
 @Component({
   selector: 'app-job-details-sidecompany',

@@ -106,3 +106,5 @@ export type TLanguage =
   | 'russian'
   | 'french'
   | 'urdu';
+
+export type TInterviewType = 'on-site' | 'phone' | 'online';

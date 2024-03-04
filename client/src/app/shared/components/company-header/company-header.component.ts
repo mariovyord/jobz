@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ICompany } from '../../types/company';
+import { ICompany } from '@shared/interfaces/company';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
@@ -8,7 +8,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   imports: [NgxSkeletonLoaderModule],
   templateUrl: './company-header.component.html',
   styleUrl: './company-header.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompanyHeaderComponent {
   @Input({ required: true }) public company: ICompany | null;

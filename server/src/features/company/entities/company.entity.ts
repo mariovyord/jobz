@@ -1,9 +1,10 @@
-import { Article } from 'src/article/entities/article.entity';
-import { Job } from 'src/job/entities/job.entity';
+import { Article } from 'src/features/article/entities/article.entity';
+import { Job } from 'src/features/job/entities/job.entity';
+import { ICompany } from 'src/shared/interfaces/company';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Company {
+export class Company implements ICompany {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
